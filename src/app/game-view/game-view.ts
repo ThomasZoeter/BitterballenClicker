@@ -8,12 +8,9 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
 @Component({
   selector: 'game-view',
   standalone: true,
-  imports: [
-    RouterLink,
-    RouterOutlet,
-  ],
+  imports: [],
   template: `
-  <p>JOOOOOOOOOOOOO</p>
+  <p>JOOOOOOOOOOOOOOOO</p>
 
   `
 })
