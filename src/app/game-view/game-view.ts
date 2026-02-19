@@ -27,7 +27,12 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
   </div>
   <div class="right">
     <p>right</p>
-
+    <div class="upgrades">
+      <p>upgrades</p>
+    </div>
+    <div class="buildings">
+      <p>Buildings</p>
+    </div>
   </div>
 
 

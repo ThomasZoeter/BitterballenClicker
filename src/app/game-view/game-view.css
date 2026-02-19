@@ -38,3 +38,15 @@
     width: 100px;
     height: 100px;
 }
+
+.upgrades {
+    background-color: blueviolet;
+    width: 30%;
+    height: 300px;
+}
+
+.buildings {
+    background-color: goldenrod;
+    width: 30%;
+    height: 300px;
+}
