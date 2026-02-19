@@ -9,27 +9,28 @@
 }
 
 .left {
-  background-color: #2196F3;
-  padding: 20px;
-  float: left;
-  width: 30%; /* The width is 30%, by default */
-  height: 100%
+    background-color: #2196F3;
+    padding: 20px;
+    float: left;
+    width: 30%; /* The width is 30%, by default */
+    max-height: 100vh;
 }
 
 .middle {
-  background-color: #f1f1f1;
-  padding: 20px;
-  float: left;
-  width: 40%; /* The width is 40%, by default */
-  height: 100%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    float: left;
+    width: 40%; /* The width is 40%, by default */
+    max-height: 100vh;
 }
 
 .right {
-  background-color: #04AA6D;
-  padding: 20px;
-  float: left;
-  width: 30%; /* The width is 30%, by default */
-  height: 100%
+    background-color: #04AA6D;
+    padding: 20px;
+    float: left;
+    width: 30%; /* The width is 30%, by default */
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .bitterbal {
