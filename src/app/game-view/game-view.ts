@@ -11,11 +11,14 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
   imports: [],
   styleUrl: './game-view.css',
   template: `
+  <div class="top">
+    <p>TOP</p>
+  </div>
   <div class="left">
-    <p>left</p>
-    <div class='bitterbal'>
+    <h2>Number of bitterballen:</h2>
+    <h2>{{ onScreenBB }}</h2>
+    <div class="bitterbal">
       <p>Bitterbal</p>
-    
     </div>
   </div>
   <div class="middle">
@@ -30,4 +33,6 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
 
   `
 })
-export class Game {}
+export class Game {
+  public onScreenBB = 0
+}
