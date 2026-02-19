@@ -9,8 +9,24 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
   selector: 'game-view',
   standalone: true,
   imports: [],
+  styleUrl: './game-view.css',
   template: `
-  <p>JOOOOOOOOOOOOOOOO</p>
+  <div class="left">
+    <p>left</p>
+    <div class='bitterbal'>
+      <p>Bitterbal</p>
+    
+    </div>
+  </div>
+  <div class="middle">
+    <p>middle</p>
+
+  </div>
+  <div class="right">
+    <p>right</p>
+
+  </div>
+
 
   `
 })
