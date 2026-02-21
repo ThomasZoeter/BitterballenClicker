@@ -30,7 +30,6 @@
     float: left;
     width: 30%; /* The width is 30%, by default */
     max-height: 100vh;
-    overflow: auto;
 }
 
 .bitterbal {
