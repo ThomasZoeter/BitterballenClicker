@@ -25,7 +25,6 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
   </div>
   <div class="middle">
     <p>middle</p>
-
   </div>
   <div class="right">
     <p>right</p>
@@ -40,7 +39,7 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
 
   `
 })
-export class Game implements OnInit,OnDestroy {
+export class Game {
   public onScreenBB = 0
   private realBB = 0
   private BpS = 1
@@ -52,18 +51,18 @@ export class Game implements OnInit,OnDestroy {
     this.onScreenBB = this.realBB
   }
 
-    ngOnInit(): void {
-    // interval(1000) emits a value every 1000ms (1 second)
-    this.timerSubscription = interval(1000).subscribe(() => {
-      this.onScreenBB = this.onScreenBB + this.BpS
-    });
-  }
+  //   ngOnInit(): void {
+  //   // interval(1000) emits a value every 1000ms (1 second)
+  //   this.timerSubscription = interval(1000).subscribe(() => {
+  //     this.onScreenBB = this.onScreenBB + this.BpS
+  //   });
+  // }
 
-  ngOnDestroy(): void {
-    // Unsubscribe to prevent memory leaks when the component is destroyed
-    if (this.timerSubscription) {
-      this.timerSubscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy(): void {
+  //   // Unsubscribe to prevent memory leaks when the component is destroyed
+  //   if (this.timerSubscription) {
+  //     this.timerSubscription.unsubscribe();
+  //   }
+  // }
 
 }
