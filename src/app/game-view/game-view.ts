@@ -19,7 +19,7 @@ import {Router, RouterLink, RouterOutlet} from '@angular/router';
   <div class="left">
     <h2>Number of bitterballen:</h2>
     <h2>{{ onScreenBB }}</h2>
-    <div class="bitterbal">
+    <div class="bitterbal" (click)="clickOnB()">
       <p>Bitterbal</p>
     </div>
   </div>
