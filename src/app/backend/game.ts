@@ -22,11 +22,13 @@ export class Game {
 
   public clickBB(): number {
     this.gameState.realBB += this.gameState.actualClickingPower
+    this.gameState.allTimeBB += this.gameState.actualClickingPower
     return this.gameState.realBB
   }
 
   public addBpS(): number {
     this.gameState.realBB += this.gameState.BpS
+    this.gameState.allTimeBB += this.gameState.BpS
     return this.gameState.realBB
   }
 

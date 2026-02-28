@@ -25,6 +25,7 @@ import {BuildingType} from '../backend/buildingType';
           <div class="bitterbal" (click)="clickOnB()">
               <p>Bitterbal</p>
           </div>
+          <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
       </div>
       <div class="middle">
           <p>middle</p>
@@ -94,7 +95,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
 
   public setHidden(name: string): boolean {
     const thisBuilding = this.game.getAllBuildings().find(b => b.name === name)
-    return !(thisBuilding != undefined && thisBuilding.cost / 2 <= this.game.getGameState().realBB );
+    return !(thisBuilding != undefined && thisBuilding.cost / 2 <= this.game.getGameState().allTimeBB );
   }
 
   public setBuyable(name: string) {
