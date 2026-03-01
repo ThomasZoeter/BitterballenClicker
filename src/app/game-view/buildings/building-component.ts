@@ -7,8 +7,8 @@ import {Game} from '../../backend/game';
 @Component({
   selector: 'building-component',
   standalone: true,
-  styleUrl: './building.css',
-  templateUrl: './building.html'
+  styleUrl: './building-component.css',
+  templateUrl: './building-component.html'
 
 })
 
