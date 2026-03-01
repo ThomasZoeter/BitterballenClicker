@@ -1,7 +1,6 @@
 import {GameState} from "./game-state";
 import {Buildings} from '../game-view/buildings/buildings';
 import {BuildingType} from './buildingType';
-import {BuiltinType} from '@angular/compiler';
 
 export class Game {
   private readonly gameState: GameState;
@@ -32,7 +31,7 @@ export class Game {
     return this.gameState.realBB
   }
 
-  public buyBuilding(name: string): number {
+  public buyBuilding(name: string | undefined): number {
     const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
@@ -41,6 +40,18 @@ export class Game {
     this.gameState.BpS += selectedBuilding.effectBpS
     selectedBuilding.cost *= 2
     selectedBuilding.amount += 1
+    return this.gameState.realBB
+  }
+
+  public sellBuilding(name: string | undefined): number {
+    const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
+    if (selectedBuilding == undefined) {
+      throw new Error("undefined")
+    }
+    this.gameState.realBB += selectedBuilding.cost /2
+    this.gameState.BpS -= selectedBuilding.effectBpS
+    selectedBuilding.cost /= 2
+    selectedBuilding.amount -= 1
     return this.gameState.realBB
   }
 }
