@@ -1,4 +1,4 @@
-import {BuildingType} from '../../backend/buildingType';
+import {BuildingType} from './buildingType';
 
 export class Buildings {
   frituur: BuildingType = {

@@ -1,5 +1,5 @@
 import {GameState} from "./game-state";
-import {Buildings} from '../game-view/buildings/buildings';
+import {Buildings} from './buildings';
 import {BuildingType} from './buildingType';
 
 export class Game {
@@ -48,7 +48,7 @@ export class Game {
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
     }
-    this.gameState.realBB += selectedBuilding.cost /2
+    this.gameState.realBB += selectedBuilding.cost / 4 //because after buying one the cost doubles, so to get half of the original value you need to divide it bhy 4
     this.gameState.BpS -= selectedBuilding.effectBpS
     selectedBuilding.cost /= 2
     selectedBuilding.amount -= 1

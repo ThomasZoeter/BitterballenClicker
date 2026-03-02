@@ -5,9 +5,8 @@ import {
 } from '@angular/core';
 import {interval, Subscription} from 'rxjs';
 import {Game} from "../backend/game";
-import {Buildings} from './buildings/buildings';
 import {BuildingType} from '../backend/buildingType';
-import {BuildingComponent} from './buildings/building-component';
+import {BuildingComponent} from './building-component/building-component';
 
 @Component({
   selector: 'game-view',
@@ -46,23 +45,6 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   //   this.onScreenBB.update(() => this.realBB)
   // }
   //
-  public buyBuilding(name: string) {
-    this.onScreenBB.update(() => this.game.buyBuilding(name))
-    const thisBuilding = this.game.getAllBuildings().find(b => b.name === name)
-    if (thisBuilding != undefined) {
-      console.log(thisBuilding.amount)
-    }
-  }
-
-  public setHidden(name: string): boolean {
-    const thisBuilding = this.game.getAllBuildings().find(b => b.name === name)
-    return !(thisBuilding != undefined && thisBuilding.cost / 2 <= this.game.getGameState().allTimeBB );
-  }
-
-  public setBuyable(name: string) {
-    const thisBuilding = this.game.getAllBuildings().find(b => b.name === name)
-    return !(thisBuilding != undefined && thisBuilding.cost <= this.game.getGameState().realBB );
-  }
 
   //
   // public buyUpgrade(price: number, addMod: number) {

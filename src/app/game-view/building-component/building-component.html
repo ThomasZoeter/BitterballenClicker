@@ -1,0 +1,7 @@
+<div class="building" [hidden]="setHidden(building)" >
+  <p> {{ building?.name }} </p>
+  <p> {{ building?.amount }}</p>
+  <p> {{ building?.cost }}</p>
+  <button [disabled]="setBuyable(building)" (click)="game?.buyBuilding(building?.name)">buy</button>
+  <button [disabled]="isSellable(building)" (click)="game?.sellBuilding(building?.name)">sell</button>
+</div>
