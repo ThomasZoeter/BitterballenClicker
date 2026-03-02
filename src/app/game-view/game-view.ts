@@ -7,12 +7,15 @@ import {interval, Subscription} from 'rxjs';
 import {Game} from "../backend/game";
 import {BuildingType} from '../backend/buildingType';
 import {BuildingComponent} from './building-component/building-component';
+import {UpgradeType} from '../backend/upgradeType';
+import {UpgradeComponent} from './upgrade-component/upgrade-component';
 
 @Component({
   selector: 'game-view',
   standalone: true,
   imports: [
-    BuildingComponent
+    BuildingComponent,
+    UpgradeComponent
   ],
   styleUrl: './game-view.css',
   templateUrl: './game-view.html'
@@ -21,6 +24,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   public onScreenBB = signal(0)
   game: Game = new Game()
   public buildings: BuildingType[] = []
+  public upgrades: UpgradeType[] = []
 
   private timerSubscription: Subscription | undefined;
 
@@ -31,29 +35,12 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   ngOnInit(): void {
     this.game = new Game()
     this.buildings = this.game.getAllBuildings();
+    this.upgrades = this.game.getAllUpgrades()
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {
       this.onScreenBB.update(() => this.game.addBpS())
     });
   }
-
-  //
-  // public buyClickerUpgrade(price: number, addClickingPower: number) {
-  //   this.realBB = this.realBB - price
-  //   this.baseClickingPower = this.baseClickingPower + addClickingPower
-  //   this.actualClickingPower = this.baseClickingPower * this.clickingPowerModifier
-  //   this.onScreenBB.update(() => this.realBB)
-  // }
-  //
-
-  //
-  // public buyUpgrade(price: number, addMod: number) {
-  //   this.realBB = this.realBB - price
-  //   this.BpSModifier = this.BpSModifier + addMod
-  //   this.BpS = this.baseBpS * this.BpSModifier
-  //   this.onScreenBB.update(() => this.realBB)
-  //
-  // }
 
   ngOnDestroy(): void {
     // Unsubscribe to prevent memory leaks when the component is destroyed

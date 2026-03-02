@@ -8,6 +8,10 @@
     <p>Bitterbal</p>
   </div>
   <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
+  <h3>Clicking base: {{ this.game.getGameState().baseClickingPower}}</h3>
+  <h3>Clicking mod: {{ this.game.getGameState().clickingPowerModifier}}</h3>
+  <h3>Clicking real: {{ this.game.getGameState().actualClickingPower}}</h3>
+  <h3>Bps modifier: {{ this.game.getGameState().BpSModifier}}</h3>
 </div>
 <div class="middle">
   <p>middle</p>
@@ -15,13 +19,17 @@
 <div class="right">
   <p>right</p>
   <div class="upgradeBlock">
-    <!--              <button class="upgrade" [disabled]="(onScreenBB()) < 15" [hidden]="(onScreenBB()) < 15" (click)="buyUpgrade(15,1)">Mod</button>-->
-    <!--              <button class="upgrade" [disabled]="(onScreenBB()) < 120" [hidden]="(onScreenBB()) < 1000" (click)="buyUpgrade(1200,10)">Mod2</button>-->
+    @for (upgrade of upgrades; let idx =  $index; track idx) {
+      <upgrade-component [upgrade]="upgrade"
+                         [game]="this.game">
+      </upgrade-component>
+    }
   </div>
   <div class="buildingBlock">
     @for (building of buildings;let idx = $index;track idx) {
       <building-component [building]="building"
-                          [game]="this.game"></building-component>
+                          [game]="this.game">
+      </building-component>
     }
   </div>
 </div>

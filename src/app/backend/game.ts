@@ -1,10 +1,13 @@
 import {GameState} from "./game-state";
 import {Buildings} from './buildings';
 import {BuildingType} from './buildingType';
+import {Upgrades} from './upgrades';
+import {UpgradeType} from './upgradeType';
 
 export class Game {
   private readonly gameState: GameState;
   buildings: Buildings
+  upgrades: Upgrades
 
   public getGameState(): GameState {
     return this.gameState;
@@ -14,9 +17,14 @@ export class Game {
     return this.buildings.getAllBuildings()
   }
 
+  public getAllUpgrades(): UpgradeType[] {
+    return this.upgrades.getAllUpgrades()
+  }
+
   constructor() {
     this.gameState = new GameState
     this.buildings = new Buildings()
+    this.upgrades = new Upgrades()
   }
 
   public clickBB(): number {
@@ -53,5 +61,25 @@ export class Game {
     selectedBuilding.cost /= 2
     selectedBuilding.amount -= 1
     return this.gameState.realBB
+  }
+
+  public buyUpgrade(upgrade: UpgradeType | undefined){
+    if(upgrade == undefined) {
+      throw new Error("undefined")
+    }
+    this.gameState.realBB -= upgrade.cost
+    if(upgrade.effectOnBuilding != '') {
+      const buildingWithEffect = this.getAllBuildings().find(b => b.name === upgrade.effectOnBuilding)
+      if(buildingWithEffect != undefined) {
+        buildingWithEffect.effectBpS *= 2
+      }
+    }
+    this.gameState.clickingPowerModifier *= upgrade.effectOnModClicker + 1
+    this.gameState.baseClickingPower += upgrade.effectOnBaseClicker
+    this.gameState.actualClickingPower = this.gameState.baseClickingPower * this.gameState.clickingPowerModifier
+
+    this.gameState.BpSModifier *= upgrade.effectOnModBps + 1
+    this.gameState.realBB = this.gameState.baseBpS * this.gameState.BpSModifier
+
   }
 }

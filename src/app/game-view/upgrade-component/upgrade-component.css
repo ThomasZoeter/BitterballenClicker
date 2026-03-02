@@ -1,0 +1,13 @@
+.upgrade {
+  background-color: orange;
+  height: 100px;
+  width: 100px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+}
+
+.upgrade:hover .description {
+  background-color: darkorange;
+  border: 1px solid black;
+}
+
