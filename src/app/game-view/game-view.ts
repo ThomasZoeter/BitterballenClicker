@@ -22,6 +22,7 @@ import {UpgradeComponent} from './upgrade-component/upgrade-component';
 })
 export class GameView implements OnInit, OnDestroy, DoCheck {
   public onScreenBB = signal(0)
+  public onScreenTotalBB = signal(0)
   game: Game = new Game()
   public buildings: BuildingType[] = []
   public upgrades: UpgradeType[] = []
@@ -39,6 +40,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {
       this.onScreenBB.update(() => this.game.addBpS())
+      this.onScreenTotalBB.update(() => this.game.getGameState().allTimeBB)
     });
   }
 
