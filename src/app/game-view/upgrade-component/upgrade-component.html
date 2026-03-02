@@ -1,3 +1,5 @@
-<button class="upgrade" (click)="game?.buyUpgrade(upgrade)">
+<button class="upgrade" (click)="game?.buyUpgrade(upgrade)"
+        [hidden]="setHidden(upgrade)"
+        [disabled]="setBuyable(upgrade)">
   {{ upgrade?.name }}
 </button>

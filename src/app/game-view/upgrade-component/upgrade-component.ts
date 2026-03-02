@@ -17,8 +17,7 @@ export class UpgradeComponent {
 
   public setHidden(upgrade: UpgradeType | undefined): boolean {
     return !(upgrade != undefined &&
-      this.game !== undefined &&
-      upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
+      this.game !== undefined && !upgrade.hasBeenBought && upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
   }
 
   public setBuyable(upgrade: UpgradeType | undefined): boolean {

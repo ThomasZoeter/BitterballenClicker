@@ -81,5 +81,7 @@ export class Game {
     this.gameState.BpSModifier *= upgrade.effectOnModBps + 1
     this.gameState.realBB = this.gameState.baseBpS * this.gameState.BpSModifier
 
+    upgrade.hasBeenBought = true
+
   }
 }
