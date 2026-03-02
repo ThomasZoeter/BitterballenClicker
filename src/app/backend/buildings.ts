@@ -1,13 +1,20 @@
 import {BuildingType} from './buildingType';
 
 export class Buildings {
+  autoClicker: BuildingType = {
+    name: "autoclicker",
+    description: "This is an autoclicker",
+    cost: 10,
+    effectBpS: 1,
+    amount: 0,
+  }
+
   frituur: BuildingType = {
     name: "frituur",
     description: "This is a frituur",
     cost: 100,
-    effectBpS: 1,
+    effectBpS: 5,
     amount: 0,
-    hidden: true
   }
 
   snackbar: BuildingType = {
@@ -16,7 +23,6 @@ export class Buildings {
     cost: 500,
     effectBpS: 10,
     amount: 0,
-    hidden: true
   }
 
   factory: BuildingType = {
@@ -25,11 +31,11 @@ export class Buildings {
     cost: 1500,
     effectBpS: 50,
     amount: 0,
-    hidden: true
   }
 
   getAllBuildings(): BuildingType[] {
     return [
+      this.autoClicker,
       this.frituur,
       this.snackbar,
       this.factory

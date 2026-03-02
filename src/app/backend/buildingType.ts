@@ -1,6 +1,3 @@
-import {Input} from '@angular/core';
-import {GameState} from './game-state';
-
 export type BuildingType =
   {
     name: string
@@ -8,5 +5,4 @@ export type BuildingType =
     cost: number
     effectBpS: number
     amount: number
-    hidden: boolean
   }
