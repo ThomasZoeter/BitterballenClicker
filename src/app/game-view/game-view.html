@@ -6,13 +6,12 @@
   <button (click)="clearData()">Clear data</button>
   <h2>Number of bitterballen:</h2>
   <h2>{{ onScreenBB() }}</h2>
-  <div class="bitterbal" (click)="clickOnB()">
-    <p>Bitterbal</p>
-  </div>
+  <svg height="200" width="200" (click)="clickOnB()">
+    <circle r="90" cx="100" cy="100" fill="yellow" />
+  </svg>
   <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
 </div>
 <div class="middle">
-  <p>middle</p>
   <div>
     <info-component [game]="this.game"
                     [upgradesBought]="this.upgrades"
@@ -20,7 +19,7 @@
   </div>
 </div>
 <div class="right">
-  <p>right</p>
+  <p>Upgrades</p>
   <div class="upgradeBlock">
     @for (upgrade of upgrades;let idx =  $index;track idx) {
       <upgrade-component [upgrade]="upgrade"
@@ -28,6 +27,7 @@
       </upgrade-component>
     }
   </div>
+  <p>Buildings</p>
   <div class="buildingBlock">
     @for (building of buildings;let idx = $index;track idx) {
       <building-component [building]="building"
@@ -35,4 +35,7 @@
       </building-component>
     }
   </div>
+</div>
+<div class="bottom">
+  <p>BOTTOM</p>
 </div>
