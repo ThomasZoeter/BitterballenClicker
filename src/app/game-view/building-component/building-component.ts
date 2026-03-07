@@ -1,7 +1,7 @@
 import {
   Component, Input
 } from '@angular/core';
-import {BuildingType} from "../../backend/buildingType"
+import {BuildingType} from "../../backend/buildings/buildingType"
 import {Game} from '../../backend/game';
 
 @Component({
