@@ -4,7 +4,7 @@
 
 .top {
     background-color:saddlebrown;
-    padding:15px;
+    padding:5px;
     text-align:center;
     border-width: 5px;
     border-bottom-style: solid;
@@ -42,10 +42,13 @@
 }
 
 .upgradeBlock {
-    background-color: blueviolet;
+    background-color: burlywood;
     width: 100%;
     height: 180px;
-    overflow: auto
+    overflow: auto;
+    border-width: 5px;
+    border-style: solid;
+    border-color: saddlebrown;
 }
 
 .upgrade {
@@ -55,10 +58,13 @@
 
 
 .buildingBlock {
-    background-color: goldenrod;
+    background-color: burlywood;
     width: 100%;
     height: 180px;
-    overflow: auto
+    overflow: auto;
+    border-width: 5px;
+    border-style: solid;
+    border-color: saddlebrown;
 }
 
 .building {
