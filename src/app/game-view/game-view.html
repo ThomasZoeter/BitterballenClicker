@@ -2,25 +2,27 @@
   <p>TOP</p>
 </div>
 <div class="left">
+  <button (click)="saveData()">Save data</button>
+  <button (click)="clearData()">Clear data</button>
   <h2>Number of bitterballen:</h2>
   <h2>{{ onScreenBB() }}</h2>
   <div class="bitterbal" (click)="clickOnB()">
     <p>Bitterbal</p>
   </div>
   <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
-  <h3>Clicking base: {{ this.game.getGameState().baseClickingPower}}</h3>
-  <h3>Clicking mod: {{ this.game.getGameState().clickingPowerModifier}}</h3>
-  <h3>Clicking real: {{ this.game.getGameState().actualClickingPower}}</h3>
-  <h3>Bps modifier: {{ this.game.getGameState().BpSModifier}}</h3>
-  <h2>Total BBs: {{ this.game.getGameState().allTimeBB }}</h2>
 </div>
 <div class="middle">
   <p>middle</p>
+  <div>
+    <info-component [game]="this.game"
+                    [upgradesBought]="this.upgrades"
+    ></info-component>
+  </div>
 </div>
 <div class="right">
   <p>right</p>
   <div class="upgradeBlock">
-    @for (upgrade of upgrades; let idx =  $index; track idx) {
+    @for (upgrade of upgrades;let idx =  $index;track idx) {
       <upgrade-component [upgrade]="upgrade"
                          [game]="this.game">
       </upgrade-component>

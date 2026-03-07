@@ -1,8 +1,8 @@
 import {GameState} from "./game-state";
-import {Buildings} from './buildings';
-import {BuildingType} from './buildingType';
-import {Upgrades} from './upgrades';
-import {UpgradeType} from './upgradeType';
+import {Buildings} from './buildings/buildings';
+import {BuildingType} from './buildings/buildingType';
+import {Upgrades} from './upgrades/upgrades';
+import {UpgradeType} from './upgrades/upgradeType';
 
 export class Game {
   private readonly gameState: GameState;

@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Game} from '../../backend/game';
-import {UpgradeType} from '../../backend/upgradeType';
-import {BuildingType} from '../../backend/buildingType';
+import {UpgradeType} from '../../backend/upgrades/upgradeType';
 
 @Component({
   selector: 'upgrade-component',

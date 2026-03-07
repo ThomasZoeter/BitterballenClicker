@@ -6,9 +6,22 @@ export class GameState {
 
   public baseBpS = 0
   public BpSModifier = 1
-  public BpS = this.baseBpS * this.BpSModifier
+  public BpS = 0 // this.baseBpS * this.BpSModifier
 
   public baseClickingPower = 1
   public clickingPowerModifier = 1
-  public actualClickingPower = this.baseClickingPower * this.clickingPowerModifier
+  public actualClickingPower = 1 // this.baseClickingPower * this.clickingPowerModifier
+
+  setGameStateTpDefault() {
+    this.realBB = 0
+    this.allTimeBB = 0
+
+    this.baseBpS = 0
+    this.BpSModifier = 1
+    this.BpS = 0
+
+    this.baseClickingPower = 1
+    this.clickingPowerModifier = 1
+    this.actualClickingPower = 1
+  }
 }
