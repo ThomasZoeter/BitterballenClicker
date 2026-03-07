@@ -16,7 +16,7 @@
     padding: 20px;
     float: left;
     width: 30%; /* The width is 30%, by default */
-    min-height: 90vh;
+    min-height: 86vh;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -27,7 +27,7 @@
     padding: 20px;
     float: left;
     width: 40%; /* The width is 40%, by default */
-    min-height: 90vh;
+    min-height: 86vh;
 }
 
 .right {
@@ -35,7 +35,7 @@
     padding: 20px;
     float: left;
     width: 30%; /* The width is 30%, by default */
-    min-height: 90vh;
+    min-height: 86vh;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -69,7 +69,7 @@
 /* Use a media query to add a break point at 800px: */
 @media screen and (min-height: 800px) {
   .upgradeBlock, .buildingBlock {
-    height: 400px;
+    height: 350px;
   }
 }
 
