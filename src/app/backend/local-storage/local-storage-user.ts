@@ -25,10 +25,11 @@ export class LocalStorageUser {
     this.localStorage.setData("allTimeBB",this.game.getGameState().allTimeBB.toString())
     this.localStorage.setData("BpS",this.game.getGameState().BpS.toString())
 
+    // save last save date so that offline count can be done
     const dateTimeOnLastSave = new Date()
     this.localStorage.setData("dateTimeSinceLastSave",dateTimeOnLastSave.toString())
 
-    // TODO: add more data to save
+    // TODO: add more data to save, like buildings and upgrades
 
   }
 

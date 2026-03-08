@@ -39,25 +39,26 @@ export class Game {
     return this.gameState.realBB
   }
 
-  public buyBuilding(name: string | undefined): number {
-    const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
+  public buyBuilding(selectedBuilding: BuildingType | undefined): number {
+    // const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
     }
     this.gameState.realBB -= selectedBuilding.cost
-    this.gameState.BpS += selectedBuilding.effectBpS
+    this.gameState.baseBpS += selectedBuilding.effectBpS
+    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
     selectedBuilding.cost *= 2
     selectedBuilding.amount += 1
     return this.gameState.realBB
   }
 
-  public sellBuilding(name: string | undefined): number {
-    const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
+  public sellBuilding(selectedBuilding: BuildingType | undefined): number {
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
     }
     this.gameState.realBB += selectedBuilding.cost / 4 //because after buying one the cost doubles, so to get half of the original value you need to divide it bhy 4
-    this.gameState.BpS -= selectedBuilding.effectBpS
+    this.gameState.baseBpS -= selectedBuilding.effectBpS
+    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
     selectedBuilding.cost /= 2
     selectedBuilding.amount -= 1
     return this.gameState.realBB
@@ -79,7 +80,7 @@ export class Game {
     this.gameState.actualClickingPower = this.gameState.baseClickingPower * this.gameState.clickingPowerModifier
 
     this.gameState.BpSModifier *= upgrade.effectOnModBps + 1
-    this.gameState.realBB = this.gameState.baseBpS * this.gameState.BpSModifier
+    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
 
     upgrade.hasBeenBought = true
 

@@ -2,6 +2,6 @@
   <p> {{ building?.name }} </p>
   <p> {{ building?.amount }}</p>
   <p> {{ building?.cost }}</p>
-  <button [disabled]="setBuyable(building)" (click)="game?.buyBuilding(building?.name)">buy</button>
-  <button [disabled]="isSellable(building)" (click)="game?.sellBuilding(building?.name)">sell</button>
+  <button [disabled]="setBuyable(building)" (click)="game?.buyBuilding(building)">buy</button>
+  <button [disabled]="isSellable(building)" (click)="game?.sellBuilding(building)">sell</button>
 </div>

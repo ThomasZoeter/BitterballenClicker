@@ -4,7 +4,7 @@ export class Upgrades {
   clickerMod_1: UpgradeType = {
     name: "clickerMod_1",
     description: "Increases base clickerpower",
-    cost: 1000,
+    cost: 10,
     effectOnBuilding: "",
     effectOnBaseClicker: 1,
     effectOnModClicker: 0,
