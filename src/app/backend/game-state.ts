@@ -12,7 +12,7 @@ export class GameState {
   public clickingPowerModifier = 1
   public actualClickingPower = 1 // this.baseClickingPower * this.clickingPowerModifier
 
-  setGameStateTpDefault() {
+  setGameStateToDefault() {
     this.realBB = 0
     this.allTimeBB = 0
 

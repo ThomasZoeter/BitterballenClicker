@@ -2,8 +2,8 @@
   <p>TOP</p>
 </div>
 <div class="left">
-  <button (click)="saveData()">Save data</button>
-  <button (click)="clearData()">Clear data</button>
+  <button (click)="this.localStorageUser.saveData()">Save data</button>
+  <button (click)="this.localStorageUser.clearData()">Clear data</button>
   <h2>Number of bitterballen:</h2>
   <h2>{{ onScreenBB() }}</h2>
   <svg height="200" width="200" (click)="clickOnB()">
@@ -17,6 +17,7 @@
                     [upgradesBought]="this.upgrades"
     ></info-component>
   </div>
+  <div>Bitterballen since last save: {{ this.BBsSinceLastSave}}</div>
 </div>
 <div class="right">
   <p>Upgrades</p>

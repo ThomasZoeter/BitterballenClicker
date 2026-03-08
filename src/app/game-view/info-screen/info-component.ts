@@ -16,9 +16,8 @@ export class InfoComponent implements OnInit {
   @Input() upgradesBought?: UpgradeType[]
   @Input() game?: Game
 
-
   private getBoughtUpgrade(boughtUpgrades: UpgradeType[] | undefined) {
-    if(boughtUpgrades != undefined) {
+    if (boughtUpgrades != undefined) {
       return boughtUpgrades.filter(u => u.hasBeenBought)
     }
     return undefined
