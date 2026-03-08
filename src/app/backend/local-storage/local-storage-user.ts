@@ -17,9 +17,7 @@ export class LocalStorageUser {
     this.game.getGameState().realBB = Number(this.localStorage.getData("realBB"))
     this.game.getGameState().allTimeBB = Number(this.localStorage.getData("allTimeBB"))
     this.game.getGameState().BpS = Number(this.localStorage.getData("BpS"))
-
-    console.log("Previous:" + this.localStorage.getData("dateTimeSinceLastSave"))
-
+    // TODO: retrieve more data
   }
 
   saveData() {
@@ -28,7 +26,9 @@ export class LocalStorageUser {
     this.localStorage.setData("BpS",this.game.getGameState().BpS.toString())
 
     const dateTimeOnLastSave = new Date()
-    this.localStorage.setData("dateTimeSinceLastSave",dateTimeOnLastSave.toLocaleString())
+    this.localStorage.setData("dateTimeSinceLastSave",dateTimeOnLastSave.toString())
+
+    // TODO: add more data to save
 
   }
 
@@ -40,9 +40,6 @@ export class LocalStorageUser {
 
   private getTimeDiff(startDate: Date, endDate: Date) {
     const diff = endDate.getTime() - startDate.getTime();
-    const days = Math.floor(diff / (60 * 60 * 24 * 1000));
-    const hours = Math.floor(diff / (60 * 60 * 1000)) - (days * 24);
-    const minutes = Math.floor(diff / (60 * 1000)) - ((days * 24 * 60) + (hours * 60));
-    return Math.floor(diff / 1000) - ((days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60))
+    return Math.floor(diff / 1000) //in milliseconds, so divide by 1000 to get seconds
   }
 }

@@ -60,6 +60,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
 
   addBBsSinceLastSave() {
     let dateTimeSinceLastSaveString = this.localStore.getData("dateTimeSinceLastSave")
+    console.log(dateTimeSinceLastSaveString)
     if(dateTimeSinceLastSaveString != null){
       let dateTimeSinceLastSave = new Date(dateTimeSinceLastSaveString)
       this.BBsSinceLastSave = this.localStorageUser.getBBsSinceLastOnline(dateTimeSinceLastSave)
