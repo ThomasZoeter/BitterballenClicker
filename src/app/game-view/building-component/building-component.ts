@@ -15,16 +15,37 @@ import {Game} from '../../backend/game';
 export class BuildingComponent {
   @Input() building?: BuildingType;
   @Input() game?: Game;
+  hovertext: string | undefined = "jo"
 
   public setHidden(building: BuildingType | undefined): boolean {
-    return !(building != undefined && this.game !== undefined && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
+    if(building != undefined) {
+      this.hovertext = this.setDescription(building)
+    }
+    return !(building != undefined
+      && this.game !== undefined
+      && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
   }
 
   public setBuyable(building: BuildingType | undefined): boolean {
-    return !(building != undefined && this.game !== undefined && building.costTotal <= this.game.getGameState().realBB);
+    return !(building != undefined
+      && this.game !== undefined
+      && building.costTotal <= this.game.getGameState().realBB);
   }
 
   public isSellable(building: BuildingType | undefined): boolean {
     return !(building != undefined && building.amount > 0)
+  }
+
+  private setDescription(building: BuildingType | undefined): string {
+
+    let totalGenerated = 0
+    if(building?.amount != undefined && building.effectBpS != undefined) {
+      totalGenerated = building?.amount * building?.effectBpS
+    }
+
+    return <string>building?.description + "\n"
+    + "1 of this building will generated " + building?.effectBpS + " bitterballen every second.\n"
+    + "You currently have " + building?.amount + " of this building.\n"
+    + "These generate " + totalGenerated + " bitterballen every second."
   }
 }

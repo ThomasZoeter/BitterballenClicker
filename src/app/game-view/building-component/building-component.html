@@ -1,7 +1,7 @@
-<div class="building" [hidden]="setHidden(building)" >
+<div class="building" [hidden]="setHidden(building)" title="{{ hovertext }}" >
   <p> {{ building?.name }} </p>
   <p> {{ building?.amount }}</p>
   <p> {{ building?.costTotal }}</p>
-  <button [disabled]="setBuyable(building)" (click)="game?.buyBuilding(building)">buy</button>
+  <button [disabled]="setBuyable(building)"  (click)="game?.buyBuilding(building)">buy</button>
   <button [disabled]="isSellable(building)" (click)="game?.sellBuilding(building)">sell</button>
 </div>

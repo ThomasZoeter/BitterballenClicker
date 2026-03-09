@@ -3,7 +3,7 @@ import {BuildingType} from './buildingType';
 export class Buildings {
   autoClicker: BuildingType = {
     name: "autoclicker",
-    description: "This is an autoclicker",
+    description: "This is an autoclicker.",
     costBase: 10,
     costTotal: 10,
     effectBpS: 1,
@@ -12,7 +12,7 @@ export class Buildings {
 
   frituur: BuildingType = {
     name: "frituur",
-    description: "This is a frituur",
+    description: "This is a frituur.",
     costBase: 100,
     costTotal: 100,
     effectBpS: 5,
@@ -21,7 +21,7 @@ export class Buildings {
 
   snackbar: BuildingType = {
     name: "snackbar",
-    description: "This is a snackbar",
+    description: "This is a snackbar.",
     costBase: 500,
     costTotal: 500,
     effectBpS: 10,
@@ -30,7 +30,7 @@ export class Buildings {
 
   factory: BuildingType = {
     name: "factory",
-    description: "This is a factory to create bitterballen",
+    description: "This is a factory to create bitterballen.",
     costBase: 1500,
     costTotal: 1500,
     effectBpS: 50,
