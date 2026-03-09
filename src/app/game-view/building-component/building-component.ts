@@ -17,11 +17,11 @@ export class BuildingComponent {
   @Input() game?: Game;
 
   public setHidden(building: BuildingType | undefined): boolean {
-    return !(building != undefined && this.game !== undefined && building.cost / 2 <= this.game.getGameState().allTimeBB);
+    return !(building != undefined && this.game !== undefined && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
   }
 
   public setBuyable(building: BuildingType | undefined): boolean {
-    return !(building != undefined && this.game !== undefined && building.cost <= this.game.getGameState().realBB);
+    return !(building != undefined && this.game !== undefined && building.costTotal <= this.game.getGameState().realBB);
   }
 
   public isSellable(building: BuildingType | undefined): boolean {

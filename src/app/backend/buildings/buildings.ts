@@ -4,7 +4,8 @@ export class Buildings {
   autoClicker: BuildingType = {
     name: "autoclicker",
     description: "This is an autoclicker",
-    cost: 10,
+    costBase: 10,
+    costTotal: 10,
     effectBpS: 1,
     amount: 0,
   }
@@ -12,7 +13,8 @@ export class Buildings {
   frituur: BuildingType = {
     name: "frituur",
     description: "This is a frituur",
-    cost: 100,
+    costBase: 100,
+    costTotal: 100,
     effectBpS: 5,
     amount: 0,
   }
@@ -20,7 +22,8 @@ export class Buildings {
   snackbar: BuildingType = {
     name: "snackbar",
     description: "This is a snackbar",
-    cost: 500,
+    costBase: 500,
+    costTotal: 500,
     effectBpS: 10,
     amount: 0,
   }
@@ -28,7 +31,8 @@ export class Buildings {
   factory: BuildingType = {
     name: "factory",
     description: "This is a factory to create bitterballen",
-    cost: 1500,
+    costBase: 1500,
+    costTotal: 1500,
     effectBpS: 50,
     amount: 0,
   }
@@ -41,6 +45,5 @@ export class Buildings {
       this.factory
     ]
   }
-
 
 }

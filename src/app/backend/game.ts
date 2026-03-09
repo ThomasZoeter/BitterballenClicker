@@ -44,11 +44,14 @@ export class Game {
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
     }
-    this.gameState.realBB -= selectedBuilding.cost
+    this.gameState.realBB -= selectedBuilding.costTotal
     this.gameState.baseBpS += selectedBuilding.effectBpS
     this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
-    selectedBuilding.cost *= 2
+
     selectedBuilding.amount += 1
+    selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
+
+
     return this.gameState.realBB
   }
 
@@ -56,11 +59,13 @@ export class Game {
     if (selectedBuilding == undefined) {
       throw new Error("undefined")
     }
-    this.gameState.realBB += selectedBuilding.cost / 4 //because after buying one the cost doubles, so to get half of the original value you need to divide it bhy 4
+    //this.gameState.realBB += selectedBuilding.cost / 4 //because after buying one the cost doubles, so to get half of the original value you need to divide it bhy 4
+
+    selectedBuilding.amount -= 1 //we first decease the amount because we want to use the original cost
+    selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
+    this.gameState.realBB += selectedBuilding.costTotal
     this.gameState.baseBpS -= selectedBuilding.effectBpS
     this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
-    selectedBuilding.cost /= 2
-    selectedBuilding.amount -= 1
     return this.gameState.realBB
   }
 
