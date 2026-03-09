@@ -15,8 +15,8 @@
     background-color: sandybrown;
     padding: 20px;
     float: left;
-    width: 30%; /* The width is 30%, by default */
-    min-height: 86vh;
+    width: 25%; /* The width is 30%, by default */
+    min-height: 93vh;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -26,16 +26,16 @@
     background-color: rosybrown;
     padding: 20px;
     float: left;
-    width: 40%; /* The width is 40%, by default */
-    min-height: 86vh;
+    width: 55%; /* The width is 40%, by default */
+    min-height: 93vh;
 }
 
 .right {
     background-color: sandybrown;
-    padding: 20px;
+    padding: 10px;
     float: left;
-    width: 30%; /* The width is 30%, by default */
-    min-height: 86vh;
+    width: 20%; /* The width is 30%, by default */
+    min-height: 93vh;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -77,13 +77,4 @@
   .upgradeBlock, .buildingBlock {
     height: 350px;
   }
-}
-
-.bottom {
-  background-color:saddlebrown;
-  padding:15px;
-  text-align:center;
-  border-width: 5px;
-  border-top-style: solid;
-  border-color: brown;
 }

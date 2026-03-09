@@ -20,7 +20,7 @@
   <div>Bitterballen since last save: {{ this.BBsSinceLastSave}}</div>
 </div>
 <div class="right">
-  <p>Upgrades</p>
+  <p style="font-family:courier;">Upgrades</p>
   <div class="upgradeBlock">
     @for (upgrade of upgrades;let idx =  $index;track idx) {
       <upgrade-component [upgrade]="upgrade"
@@ -28,7 +28,7 @@
       </upgrade-component>
     }
   </div>
-  <p>Buildings</p>
+  <p style="font-family:courier;">Buildings</p>
   <div class="buildingBlock">
     @for (building of buildings;let idx = $index;track idx) {
       <building-component [building]="building"
@@ -36,7 +36,4 @@
       </building-component>
     }
   </div>
-</div>
-<div class="bottom">
-  <p>BOTTOM</p>
 </div>
