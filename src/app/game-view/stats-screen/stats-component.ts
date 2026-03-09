@@ -5,14 +5,14 @@ import {Game} from '../../backend/game';
 import {UpgradeType} from '../../backend/upgrades/upgradeType';
 
 @Component({
-  selector: 'info-component',
+  selector: 'stats-component',
   standalone: true,
-  styleUrl: './info-component.css',
-  templateUrl: './info-component.html'
+  styleUrl: './stats-component.css',
+  templateUrl: './stats-component.html'
 
 })
 
-export class InfoComponent implements OnInit {
+export class StatsComponent implements OnInit {
   @Input() upgradesBought?: UpgradeType[]
   @Input() game?: Game
 

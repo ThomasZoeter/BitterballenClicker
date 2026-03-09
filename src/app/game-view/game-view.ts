@@ -5,7 +5,7 @@ import {BuildingType} from '../backend/buildings/buildingType';
 import {BuildingComponent} from './building-component/building-component';
 import {UpgradeType} from '../backend/upgrades/upgradeType';
 import {UpgradeComponent} from './upgrade-component/upgrade-component';
-import {InfoComponent} from './info-screen/info-component';
+import {StatsComponent} from './stats-screen/stats-component';
 import {LocalStorageService} from '../backend/local-storage/local-storage-service';
 import {LocalStorageUser} from '../backend/local-storage/local-storage-user';
 
@@ -15,7 +15,7 @@ import {LocalStorageUser} from '../backend/local-storage/local-storage-user';
   imports: [
     BuildingComponent,
     UpgradeComponent,
-    InfoComponent
+    StatsComponent
   ],
   styleUrl: './game-view.css',
   templateUrl: './game-view.html'
