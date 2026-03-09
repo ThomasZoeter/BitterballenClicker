@@ -33,17 +33,17 @@ export class LocalStorageUser {
 
   }
 
-  addBBsSinceLastSave(): number {
-    let dateTimeSinceLastSaveString = this.localStorage.getData("dateTimeSinceLastSave")
-    let BBsSinceLastSave = 0
-    if(dateTimeSinceLastSaveString != null){
-      let dateTimeSinceLastSave = new Date(dateTimeSinceLastSaveString)
+  addBBsWhileAway(): number {
+    let dateTimeWhileAwayString = this.localStorage.getData("dateTimeSinceLastSave")
+    let BBsWhileAway = 0
+    if(dateTimeWhileAwayString != null){
+      let dateTimeSinceLastSave = new Date(dateTimeWhileAwayString)
       const currentDate = new Date()
-      BBsSinceLastSave = this.getTimeDiff(dateTimeSinceLastSave, currentDate) * this.game.getGameState().BpS
-      this.game.getGameState().realBB += BBsSinceLastSave
-      this.game.getGameState().allTimeBB += BBsSinceLastSave
+      BBsWhileAway = this.getTimeDiff(dateTimeSinceLastSave, currentDate) * this.game.getGameState().BpS
+      this.game.getGameState().realBB += BBsWhileAway
+      this.game.getGameState().allTimeBB += BBsWhileAway
     }
-    return BBsSinceLastSave
+    return BBsWhileAway
   }
 
   private getTimeDiff(startDate: Date, endDate: Date) {

@@ -27,12 +27,14 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   public buildings: BuildingType[] = []
   public upgrades: UpgradeType[] = []
   localStorageUser: LocalStorageUser
-  BBsSinceLastSave = 0
+  BBsWhileAway = 0
+  hideBBsWhileAwayBlock = true
 
   private timerSubscription: Subscription | undefined;
 
   constructor(private localStore: LocalStorageService) {
     this.localStorageUser = new LocalStorageUser(localStore, this.game)
+    this.hideBBsWhileAwayBlock = false
 
   }
 
@@ -44,7 +46,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
     }
 
     //Add Bitterballen since last save
-    this.BBsSinceLastSave = this.localStorageUser.addBBsSinceLastSave()
+    this.BBsWhileAway = this.localStorageUser.addBBsWhileAway()
 
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {

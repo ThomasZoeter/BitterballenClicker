@@ -7,7 +7,7 @@
   <h2>Number of bitterballen:</h2>
   <h2>{{ onScreenBB() }}</h2>
   <svg height="200" width="200" (click)="clickOnB()">
-    <circle r="90" cx="100" cy="100" fill="yellow" />
+    <circle r="90" cx="100" cy="100" fill="yellow"/>
   </svg>
   <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
 </div>
@@ -17,7 +17,11 @@
                     [upgradesBought]="this.upgrades"
     ></info-component>
   </div>
-  <div>Bitterballen since last save: {{ this.BBsSinceLastSave}}</div>
+
+  <div class="SinceLastSave" [hidden]="this.hideBBsWhileAwayBlock">
+    <p>Bitterballen since you were away: {{ this.BBsWhileAway }}</p>
+    <button (click)="hideBBsWhileAwayBlock = true">Ok</button>
+  </div>
 </div>
 <div class="right">
   <p style="font-family:courier;">Upgrades</p>
