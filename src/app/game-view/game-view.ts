@@ -29,7 +29,6 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   localStorageUser: LocalStorageUser
   BBsSinceLastSave = 0
 
-
   private timerSubscription: Subscription | undefined;
 
   constructor(private localStore: LocalStorageService) {
@@ -45,7 +44,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
     }
 
     //Add Bitterballen since last save
-    this.addBBsSinceLastSave()
+    this.BBsSinceLastSave = this.localStorageUser.addBBsSinceLastSave()
 
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {
@@ -56,17 +55,6 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
 
   public clickOnB() {
     this.onScreenBB.update(() => this.game.clickBB())
-  }
-
-  addBBsSinceLastSave() {
-    let dateTimeSinceLastSaveString = this.localStore.getData("dateTimeSinceLastSave")
-    console.log(dateTimeSinceLastSaveString)
-    if(dateTimeSinceLastSaveString != null){
-      let dateTimeSinceLastSave = new Date(dateTimeSinceLastSaveString)
-      this.BBsSinceLastSave = this.localStorageUser.getBBsSinceLastOnline(dateTimeSinceLastSave)
-      this.game.getGameState().realBB += this.BBsSinceLastSave
-      this.game.getGameState().allTimeBB += this.BBsSinceLastSave
-    }
   }
 
   ngOnDestroy(): void {

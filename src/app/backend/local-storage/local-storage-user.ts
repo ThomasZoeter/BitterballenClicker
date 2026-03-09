@@ -33,10 +33,17 @@ export class LocalStorageUser {
 
   }
 
-  getBBsSinceLastOnline(dateSinceLastSave: Date): number {
-    const currentDate = new Date()
-    // We calculate how many seconds were between now and the last save, and multiply that with the BpS
-    return this.getTimeDiff(dateSinceLastSave, currentDate) * this.game.getGameState().BpS
+  addBBsSinceLastSave(): number {
+    let dateTimeSinceLastSaveString = this.localStorage.getData("dateTimeSinceLastSave")
+    let BBsSinceLastSave = 0
+    if(dateTimeSinceLastSaveString != null){
+      let dateTimeSinceLastSave = new Date(dateTimeSinceLastSaveString)
+      const currentDate = new Date()
+      BBsSinceLastSave = this.getTimeDiff(dateTimeSinceLastSave, currentDate) * this.game.getGameState().BpS
+      this.game.getGameState().realBB += BBsSinceLastSave
+      this.game.getGameState().allTimeBB += BBsSinceLastSave
+    }
+    return BBsSinceLastSave
   }
 
   private getTimeDiff(startDate: Date, endDate: Date) {
