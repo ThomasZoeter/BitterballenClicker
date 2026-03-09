@@ -34,7 +34,6 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
 
   constructor(private localStore: LocalStorageService) {
     this.localStorageUser = new LocalStorageUser(localStore, this.game)
-    this.hideBBsWhileAwayBlock = false
 
   }
 
@@ -43,10 +42,14 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
     this.upgrades = this.game.getAllUpgrades()
     if (this.localStore.getData("realBB") !== null) { //so if the localstorage is  not empty
       this.localStorageUser.getLocalDataOnInit()
+      //Add Bitterballen since last save
+      this.BBsWhileAway = this.localStorageUser.addBBsWhileAway()
+      if(this.BBsWhileAway > 0) {
+        this.hideBBsWhileAwayBlock = false
+      }
     }
 
-    //Add Bitterballen since last save
-    this.BBsWhileAway = this.localStorageUser.addBBsWhileAway()
+
 
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {
