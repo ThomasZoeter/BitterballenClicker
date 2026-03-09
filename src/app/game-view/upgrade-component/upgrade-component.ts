@@ -39,7 +39,7 @@ export class UpgradeComponent {
       effectText = "This upgrade increases the clicking power by " + upgrade?.effectOnModClicker / 100 + " percent."
     }
     if(upgrade?.effectOnModBps !== 0 && upgrade?.effectOnModBps !== undefined) {
-      effectText = "This upgrade increases BpS by " + upgrade?.effectOnModBps / 100 + " percent."
+      effectText = "This upgrade increases BpS by " + upgrade?.effectOnModBps + " percent."
     }
     return  <string>upgrade?.description + "\n"
     + "Cost: " + upgrade?.cost + "\n"

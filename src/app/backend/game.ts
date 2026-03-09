@@ -46,7 +46,7 @@ export class Game {
     }
     this.gameState.realBB -= selectedBuilding.costTotal
     this.gameState.baseBpS += selectedBuilding.effectBpS
-    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
+    this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
 
     selectedBuilding.amount += 1
     selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
@@ -65,7 +65,7 @@ export class Game {
     selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
     this.gameState.realBB += selectedBuilding.costTotal
     this.gameState.baseBpS -= selectedBuilding.effectBpS
-    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
+    this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
     return this.gameState.realBB
   }
 
@@ -76,16 +76,16 @@ export class Game {
     this.gameState.realBB -= upgrade.cost
     if(upgrade.effectOnBuilding != '') {
       const buildingWithEffect = this.getAllBuildings().find(b => b.name === upgrade.effectOnBuilding)
-      if(buildingWithEffect != undefined) {
+      if(buildingWithEffect !== undefined) {
         buildingWithEffect.effectBpS *= 2
       }
     }
-    this.gameState.clickingPowerModifier *= upgrade.effectOnModClicker + 1
+    this.gameState.clickingPowerModifier += upgrade.effectOnModClicker
     this.gameState.baseClickingPower += upgrade.effectOnBaseClicker
-    this.gameState.actualClickingPower = this.gameState.baseClickingPower * this.gameState.clickingPowerModifier
+    this.gameState.actualClickingPower = this.gameState.baseClickingPower * (this.gameState.clickingPowerModifier / 100)
 
-    this.gameState.BpSModifier *= upgrade.effectOnModBps + 1
-    this.gameState.BpS = this.gameState.baseBpS * this.gameState.BpSModifier
+    this.gameState.BpSModifier += upgrade.effectOnModBps
+    this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
 
     upgrade.hasBeenBought = true
 

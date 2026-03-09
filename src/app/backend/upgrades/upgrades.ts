@@ -1,10 +1,10 @@
 import {UpgradeType} from './upgradeType';
 
 export class Upgrades {
-  clickerMod_1: UpgradeType = {
-    name: "clickerMod_1",
+  clicker_1: UpgradeType = {
+    name: "Clicker_1",
     description: "This upgrade will increases base clickerpower.",
-    cost: 10,
+    cost: 1000,
     effectOnBuilding: "",
     effectOnBaseClicker: 1,
     effectOnModClicker: 0,
@@ -12,10 +12,21 @@ export class Upgrades {
     hasBeenBought: false
   }
 
+  BpS_1: UpgradeType = {
+    name: "BpS_1",
+    description: "This upgrade will increases BpS modifier with 100%.",
+    cost: 2000,
+    effectOnBuilding: "",
+    effectOnBaseClicker: 0,
+    effectOnModClicker: 0,
+    effectOnModBps: 100,
+    hasBeenBought: false
+  }
+
   FrituurMod_1: UpgradeType = {
     name: "FrituurMod_1",
     description: "Doubles bitterballen created by frituur.",
-    cost: 2000,
+    cost: 4000,
     effectOnBuilding: "Frituur",
     effectOnBaseClicker: 0,
     effectOnModClicker: 0,
@@ -25,7 +36,8 @@ export class Upgrades {
 
   getAllUpgrades(): UpgradeType[] {
     return [
-      this.clickerMod_1,
+      this.clicker_1,
+      this.BpS_1,
       this.FrituurMod_1
     ]
   }

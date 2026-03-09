@@ -5,11 +5,11 @@ export class GameState {
   public allTimeBB = 0
 
   public baseBpS = 0
-  public BpSModifier = 1
+  public BpSModifier = 100
   public BpS = 0 // this.baseBpS * this.BpSModifier
 
   public baseClickingPower = 1
-  public clickingPowerModifier = 1
+  public clickingPowerModifier = 100
   public actualClickingPower = 1 // this.baseClickingPower * this.clickingPowerModifier
 
   setGameStateToDefault() {
@@ -17,11 +17,11 @@ export class GameState {
     this.allTimeBB = 0
 
     this.baseBpS = 0
-    this.BpSModifier = 1
+    this.BpSModifier = 100
     this.BpS = 0
 
     this.baseClickingPower = 1
-    this.clickingPowerModifier = 1
+    this.clickingPowerModifier = 100
     this.actualClickingPower = 1
   }
 }
