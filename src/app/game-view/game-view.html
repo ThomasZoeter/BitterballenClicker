@@ -4,17 +4,19 @@
 <div class="left">
   <button (click)="this.localStorageUser.saveData()">Save data</button>
   <button (click)="this.localStorageUser.clearData()">Clear data</button>
-  <h2>Number of bitterballen:</h2>
-  <h2>{{ onScreenBB() }}</h2>
-  <svg height="200" width="200" (click)="clickOnB()">
-    <circle r="90" cx="100" cy="100" fill="yellow"/>
-  </svg>
-  <h3>BBs per second: {{ this.game.getGameState().BpS }}</h3>
+  <h2 style="text-align: center">Number of bitterballen:</h2>
+  <h2 style="text-align: center">{{ onScreenBB() }}</h2>
+  <div style="text-align:center;">
+    <svg height="250" width="250" (click)="clickOnB()">
+      <circle r="110" cx="125" cy="125" fill="yellow"/>
+    </svg>
+  </div>
+  <h3 style="text-align: center">BBs per second: {{ this.game.getGameState().BpS }}</h3>
 </div>
 <div class="middle">
   <div>
     <stats-component [game]="this.game"
-                    [upgradesBought]="this.upgrades"
+                     [upgradesBought]="this.upgrades"
     ></stats-component>
   </div>
 
