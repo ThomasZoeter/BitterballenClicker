@@ -1,9 +1,8 @@
 <div class="top">
-  <p>TOP</p>
-</div>
-<div class="left">
   <button (click)="this.localStorageUser.saveData()">Save data</button>
   <button (click)="this.localStorageUser.clearData()">Clear data</button>
+</div>
+<div class="left">
   <h2 style="text-align: center">Number of bitterballen:</h2>
   <h2 style="text-align: center">{{ onScreenBB() }}</h2>
   <div style="text-align:center;">
