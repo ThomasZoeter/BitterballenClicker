@@ -29,6 +29,7 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   localStorageUser: LocalStorageUser
   BBsWhileAway = 0
   hideBBsWhileAwayBlock = true
+  middleScreen = 'Default'
 
   private timerSubscription: Subscription | undefined;
 
@@ -60,6 +61,15 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
 
   public clickOnB() {
     this.onScreenBB.update(() => this.game.clickBB())
+  }
+
+  public clickMiddleScreen(choice: string) {
+    if(choice === "Statistics") {
+      this.middleScreen = "Statistics"
+    }
+    else {
+      this.middleScreen = "Default"
+    }
   }
 
   ngOnDestroy(): void {

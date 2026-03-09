@@ -23,7 +23,6 @@
 
 .middle {
     background-color: rosybrown;
-    padding: 20px;
     float: left;
     width: 55%; /* The width is 40%, by default */
     min-height: 93vh;
@@ -83,6 +82,14 @@
   position: fixed;
   bottom:0%;
   left: 45%;
+}
+
+.chooseMiddle {
+  background-color:saddlebrown;
+  border-width: 5px;
+  border-bottom-style: solid;
+  border-color: brown;
+  width: 100%;
 }
 
 /* Use a media query to add a break point at 800px: */

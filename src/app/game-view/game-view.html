@@ -13,11 +13,24 @@
   <h3 style="text-align: center">BBs per second: {{ this.game.getGameState().BpS }}</h3>
 </div>
 <div class="middle">
-  <div>
-    <stats-component [game]="this.game"
-                     [upgradesBought]="this.upgrades"
-    ></stats-component>
+  <div class="chooseMiddle">
+    <button (click)="clickMiddleScreen('Statistics')">Statistics</button>
+    <button (click)="clickMiddleScreen('Default')">Default</button>
   </div>
+  @if(this.middleScreen === 'Statistics') {
+    <div>
+      <stats-component [game]="this.game"
+                       [upgradesBought]="this.upgrades"
+      ></stats-component>
+    </div>
+  }
+  @if(this.middleScreen === 'Default') {
+    <div>
+      <p>JOOOOOOOOOOOOOOOOOOOOOOO</p>
+
+    </div>
+  }
+
 
   <div class="SinceLastSave" [hidden]="this.hideBBsWhileAwayBlock">
     <p>Bitterballen since you were away: {{ this.BBsWhileAway }}</p>
