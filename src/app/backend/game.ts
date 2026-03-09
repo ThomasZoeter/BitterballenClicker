@@ -49,7 +49,7 @@ export class Game {
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
 
     selectedBuilding.amount += 1
-    selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
+    selectedBuilding.costTotal = Math.floor(selectedBuilding.costBase * Math.pow(selectedBuilding.amount,2))
 
 
     return this.gameState.realBB
