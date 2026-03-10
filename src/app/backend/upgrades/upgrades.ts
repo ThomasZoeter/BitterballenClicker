@@ -4,7 +4,7 @@ export class Upgrades {
   clicker_1: UpgradeType = {
     name: "Clicker_1",
     description: "This upgrade will increases base clickerpower.",
-    cost: 1000,
+    cost: 50,
     effectOnBuilding: "",
     effectOnBaseClicker: 1,
     effectOnModClicker: 0,
@@ -15,7 +15,7 @@ export class Upgrades {
   BpS_1: UpgradeType = {
     name: "BpS_1",
     description: "This upgrade will increases BpS modifier with 100%.",
-    cost: 2000,
+    cost: 150,
     effectOnBuilding: "",
     effectOnBaseClicker: 0,
     effectOnModClicker: 0,
@@ -26,7 +26,7 @@ export class Upgrades {
   FrituurMod_1: UpgradeType = {
     name: "FrituurMod_1",
     description: "Doubles bitterballen created by frituur.",
-    cost: 4000,
+    cost: 250,
     effectOnBuilding: "Frituur",
     effectOnBaseClicker: 0,
     effectOnModClicker: 0,
