@@ -1,11 +1,12 @@
 <div>
+  <h1>Statistics:</h1>
   <p>All time BBs: {{ game?.getGameState()?.allTimeBB }}</p>
   <p>BpS base: {{ game?.getGameState()?.baseBpS }}</p>
-  <p>BpS mod: {{ game?.getGameState()?.BpSModifier }}</p>
+  <p>BpS mod: {{ game?.getGameState()?.BpSModifier }}%</p>
   <p>BpS real: {{ game?.getGameState()?.BpS}}</p>
 
   <p>Clicking base: {{ game?.getGameState()?.baseClickingPower }}</p>
-  <p>Clicking mod: {{ game?.getGameState()?.clickingPowerModifier }}</p>
+  <p>Clicking mod: {{ game?.getGameState()?.clickingPowerModifier }}%</p>
   <p>Clicking real: {{ game?.getGameState()?.actualClickingPower }}</p>
 
   <div class="bought-upgrades">
