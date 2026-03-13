@@ -18,7 +18,7 @@ import {BuildingType} from '../../backend/buildings/buildingType';
 })
 
 export class BuyablesComponent{
-  @Input() buildings?: BuildingType[]
-  @Input() upgrades?: UpgradeType[]
+  @Input() buildings: BuildingType[]
+  @Input() upgrades: UpgradeType[]
 
 }

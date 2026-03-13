@@ -13,7 +13,7 @@ import {Game} from '../../../backend/game';
 })
 
 export class BuildingComponent {
-  @Input() building?: BuildingType;
+  @Input() building: BuildingType;
   hovertext: string | undefined = "jo"
 
   constructor(protected game: Game){
@@ -22,17 +22,13 @@ export class BuildingComponent {
 
 
   public setHidden(building: BuildingType | undefined): boolean {
-    if(building != undefined) {
-      this.hovertext = this.setDescription(building)
-    }
-    return !(building != undefined
-      && this.game !== undefined
-      && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
+    this.hovertext = this.setDescription(building)
+
+    return !(building != undefined && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
   }
 
   public setBuyable(building: BuildingType | undefined): boolean {
     return !(building != undefined
-      && this.game !== undefined
       && building.costTotal <= this.game.getGameState().realBB);
   }
 

@@ -11,25 +11,24 @@ import {UpgradeType} from '../../../backend/upgrades/upgradeType';
 })
 
 export class UpgradeComponent {
-  @Input() upgrade?: UpgradeType
+  @Input() upgrade: UpgradeType
   hovertext = ""
 
   constructor(protected game: Game) {
   }
 
-  public setHidden(upgrade: UpgradeType | undefined): boolean {
-    if (upgrade != undefined) {
-      this.hovertext = this.setDescription(upgrade)
-    }
+  public setHidden(upgrade: UpgradeType): boolean {
+    this.hovertext = this.setDescription(upgrade)
+
     return !(upgrade != undefined &&
       this.game !== undefined && !upgrade.hasBeenBought && upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
   }
 
-  public setBuyable(upgrade: UpgradeType | undefined): boolean {
-    return !(upgrade != undefined && this.game !== undefined && upgrade.cost <= this.game.getGameState().realBB);
+  public setBuyable(upgrade: UpgradeType): boolean {
+    return !(upgrade != undefined && upgrade.cost <= this.game.getGameState().realBB);
   }
 
-  private setDescription(upgrade: UpgradeType | undefined): string {
+  private setDescription(upgrade: UpgradeType): string {
     let effectText = ""
     if (upgrade?.effectOnBuilding !== "") {
       effectText = "This upgrade doubles the power of the " + upgrade?.effectOnBuilding + "."

@@ -36,11 +36,7 @@ export class Game {
     return this.gameState.realBB
   }
 
-  public buyBuilding(selectedBuilding: BuildingType | undefined): number {
-    // const selectedBuilding = this.getAllBuildings().find(b => b.name === name)
-    if (selectedBuilding == undefined) {
-      throw new Error("undefined")
-    }
+  public buyBuilding(selectedBuilding: BuildingType): number {
     this.gameState.realBB -= selectedBuilding.costTotal
     this.gameState.baseBpS += selectedBuilding.effectBpS
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
@@ -52,12 +48,7 @@ export class Game {
     return this.gameState.realBB
   }
 
-  public sellBuilding(selectedBuilding: BuildingType | undefined): number {
-    if (selectedBuilding == undefined) {
-      throw new Error("undefined")
-    }
-    //this.gameState.realBB += selectedBuilding.cost / 4 //because after buying one the cost doubles, so to get half of the original value you need to divide it bhy 4
-
+  public sellBuilding(selectedBuilding: BuildingType): number {
     selectedBuilding.amount -= 1 //we first decease the amount because we want to use the original cost
     selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
     this.gameState.realBB += selectedBuilding.costTotal
@@ -66,10 +57,7 @@ export class Game {
     return this.gameState.realBB
   }
 
-  public buyUpgrade(upgrade: UpgradeType | undefined){
-    if(upgrade == undefined) {
-      throw new Error("undefined")
-    }
+  public buyUpgrade(upgrade: UpgradeType){
     this.gameState.realBB -= upgrade.cost
     if(upgrade.effectOnBuilding != '') {
       const buildingWithEffect = BUILDINGS.find(b => b.name === upgrade.effectOnBuilding)
