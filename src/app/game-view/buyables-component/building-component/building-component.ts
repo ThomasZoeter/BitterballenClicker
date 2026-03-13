@@ -1,8 +1,8 @@
 import {
   Component, Input
 } from '@angular/core';
-import {BuildingType} from "../../backend/buildings/buildingType"
-import {Game} from '../../backend/game';
+import {BuildingType} from "../../../backend/buildings/buildingType"
+import {Game} from '../../../backend/game';
 
 @Component({
   selector: 'building-component',
@@ -14,8 +14,12 @@ import {Game} from '../../backend/game';
 
 export class BuildingComponent {
   @Input() building?: BuildingType;
-  @Input() game?: Game;
   hovertext: string | undefined = "jo"
+
+  constructor(protected game: Game){
+
+  }
+
 
   public setHidden(building: BuildingType | undefined): boolean {
     if(building != undefined) {

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Game} from '../../backend/game';
-import {UpgradeType} from '../../backend/upgrades/upgradeType';
+import {Game} from '../../../backend/game';
+import {UpgradeType} from '../../../backend/upgrades/upgradeType';
 
 @Component({
   selector: 'upgrade-component',
@@ -12,11 +12,13 @@ import {UpgradeType} from '../../backend/upgrades/upgradeType';
 
 export class UpgradeComponent {
   @Input() upgrade?: UpgradeType
-  @Input() game?: Game;
   hovertext = ""
 
+  constructor(protected game: Game) {
+  }
+
   public setHidden(upgrade: UpgradeType | undefined): boolean {
-    if(upgrade != undefined) {
+    if (upgrade != undefined) {
       this.hovertext = this.setDescription(upgrade)
     }
     return !(upgrade != undefined &&
@@ -29,21 +31,21 @@ export class UpgradeComponent {
 
   private setDescription(upgrade: UpgradeType | undefined): string {
     let effectText = ""
-    if ( upgrade?.effectOnBuilding !== "") {
+    if (upgrade?.effectOnBuilding !== "") {
       effectText = "This upgrade doubles the power of the " + upgrade?.effectOnBuilding + "."
     }
-    if(upgrade?.effectOnBaseClicker !== 0) {
+    if (upgrade?.effectOnBaseClicker !== 0) {
       effectText = "This upgrade increases the base clicking power by " + upgrade?.effectOnBaseClicker + "."
     }
-    if(upgrade?.effectOnModClicker !== 0 && upgrade?.effectOnModClicker !== undefined) {
+    if (upgrade?.effectOnModClicker !== 0 && upgrade?.effectOnModClicker !== undefined) {
       effectText = "This upgrade increases the clicking power by " + upgrade?.effectOnModClicker / 100 + " percent."
     }
-    if(upgrade?.effectOnModBps !== 0 && upgrade?.effectOnModBps !== undefined) {
+    if (upgrade?.effectOnModBps !== 0 && upgrade?.effectOnModBps !== undefined) {
       effectText = "This upgrade increases BpS by " + upgrade?.effectOnModBps + " percent."
     }
-    return  <string>upgrade?.description + "\n"
-    + "Cost: " + upgrade?.cost + "\n"
-    + "Effect: " + effectText
+    return <string>upgrade?.description + "\n"
+      + "Cost: " + upgrade?.cost + "\n"
+      + "Effect: " + effectText
 
   }
 }
