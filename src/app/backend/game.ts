@@ -1,7 +1,5 @@
 import {GameState} from "./game-state";
-import {Buildings} from './buildings/buildings';
 import {BUILDINGS, BuildingType} from './buildings/buildingType';
-import {Upgrades} from './upgrades/upgrades';
 import {UpgradeType} from './upgrades/upgradeType';
 import {Injectable} from '@angular/core';
 
@@ -11,8 +9,6 @@ import {Injectable} from '@angular/core';
 })
 export class Game {
   private readonly gameState: GameState;
-  buildings: Buildings
-  upgrades: Upgrades
 
   public getGameState(): GameState {
     return this.gameState;
@@ -20,8 +16,6 @@ export class Game {
 
   constructor() {
     this.gameState = new GameState
-    this.buildings = new Buildings()
-    this.upgrades = new Upgrades()
   }
 
   public clickBB(): number {
