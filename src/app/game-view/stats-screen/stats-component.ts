@@ -14,7 +14,10 @@ import {UpgradeType} from '../../backend/upgrades/upgradeType';
 
 export class StatsComponent implements OnInit {
   @Input() upgradesBought?: UpgradeType[]
-  @Input() game?: Game
+
+  constructor(protected game: Game){
+
+  }
 
   private getBoughtUpgrade(boughtUpgrades: UpgradeType[] | undefined) {
     if (boughtUpgrades != undefined) {

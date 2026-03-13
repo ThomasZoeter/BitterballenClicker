@@ -2,10 +2,7 @@ import {LocalStorageService} from './local-storage-service';
 import {Game} from '../game';
 
 export class LocalStorageUser {
-  private readonly game: Game;
-
-  constructor(private localStorage: LocalStorageService, game: Game) {
-    this.game = game
+  constructor(private localStorage: LocalStorageService, private game: Game) {
   }
 
   clearData() {

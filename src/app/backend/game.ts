@@ -3,7 +3,12 @@ import {Buildings} from './buildings/buildings';
 import {BUILDINGS, BuildingType} from './buildings/buildingType';
 import {Upgrades} from './upgrades/upgrades';
 import {UpgradeType} from './upgrades/upgradeType';
+import {Injectable} from '@angular/core';
 
+@Injectable
+({
+  providedIn: 'root',
+})
 export class Game {
   private readonly gameState: GameState;
   buildings: Buildings

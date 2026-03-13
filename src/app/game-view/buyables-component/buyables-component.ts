@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Game} from '../../backend/game';
 import {UpgradeType} from '../../backend/upgrades/upgradeType';
-import {BuildingComponent} from '../building-component/building-component';
-import {UpgradeComponent} from '../upgrade-component/upgrade-component';
+import {BuildingComponent} from './building-component/building-component';
+import {UpgradeComponent} from './upgrade-component/upgrade-component';
 import {BuildingType} from '../../backend/buildings/buildingType';
 
 @Component({
@@ -17,12 +17,8 @@ import {BuildingType} from '../../backend/buildings/buildingType';
 
 })
 
-export class BuyablesComponent implements OnInit {
-  @Input() game?: Game
+export class BuyablesComponent{
   @Input() buildings?: BuildingType[]
   @Input() upgrades?: UpgradeType[]
-
-  ngOnInit(): void {
-  }
 
 }
