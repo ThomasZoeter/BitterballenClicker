@@ -1,21 +1,19 @@
 import {Component, DoCheck, OnDestroy, OnInit, signal} from '@angular/core';
 import {interval, Subscription} from 'rxjs';
 import {Game} from "../backend/game";
-import {BuildingType} from '../backend/buildings/buildingType';
-import {BuildingComponent} from './building-component/building-component';
-import {UpgradeType} from '../backend/upgrades/upgradeType';
-import {UpgradeComponent} from './upgrade-component/upgrade-component';
+import {BUILDINGS, BuildingType} from '../backend/buildings/buildingType';
+import {UPGRADES, UpgradeType} from '../backend/upgrades/upgradeType';
 import {StatsComponent} from './stats-screen/stats-component';
 import {LocalStorageService} from '../backend/local-storage/local-storage-service';
 import {LocalStorageUser} from '../backend/local-storage/local-storage-user';
+import {BuyablesComponent} from './buyables-component/buyables-component';
 
 @Component({
   selector: 'game-view',
   standalone: true,
   imports: [
-    BuildingComponent,
-    UpgradeComponent,
-    StatsComponent
+    StatsComponent,
+    BuyablesComponent
   ],
   styleUrl: './game-view.css',
   templateUrl: './game-view.html'
@@ -39,8 +37,8 @@ export class GameView implements OnInit, OnDestroy, DoCheck {
   }
 
   ngOnInit(): void {
-    this.buildings = this.game.getAllBuildings();
-    this.upgrades = this.game.getAllUpgrades()
+    this.buildings = BUILDINGS;
+    this.upgrades = UPGRADES;
     if (this.localStore.getData("realBB") !== null) { //so if the localstorage is  not empty
       this.localStorageUser.getLocalDataOnInit()
       //Add Bitterballen since last save

@@ -1,0 +1,36 @@
+.buildingBlock {
+  background-color: burlywood;
+  width: 100%;
+  height: 180px;
+  overflow: auto;
+  border-width: 5px;
+  border-style: solid;
+  border-color: saddlebrown;
+}
+
+.building {
+  font-size: 20px;
+  width: 80%;
+}
+
+.upgradeBlock {
+  background-color: burlywood;
+  width: 100%;
+  height: 180px;
+  overflow: auto;
+  border-width: 5px;
+  border-style: solid;
+  border-color: saddlebrown;
+}
+
+.upgrade {
+  font-size: 20px;
+  width: 80%;
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (min-height: 800px) {
+  .upgradeBlock, .buildingBlock {
+    height: 350px;
+  }
+}

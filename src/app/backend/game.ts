@@ -1,6 +1,6 @@
 import {GameState} from "./game-state";
 import {Buildings} from './buildings/buildings';
-import {BuildingType} from './buildings/buildingType';
+import {BUILDINGS, BuildingType} from './buildings/buildingType';
 import {Upgrades} from './upgrades/upgrades';
 import {UpgradeType} from './upgrades/upgradeType';
 
@@ -11,14 +11,6 @@ export class Game {
 
   public getGameState(): GameState {
     return this.gameState;
-  }
-
-  public getAllBuildings(): BuildingType[] {
-    return this.buildings.getAllBuildings()
-  }
-
-  public getAllUpgrades(): UpgradeType[] {
-    return this.upgrades.getAllUpgrades()
   }
 
   constructor() {
@@ -75,7 +67,7 @@ export class Game {
     }
     this.gameState.realBB -= upgrade.cost
     if(upgrade.effectOnBuilding != '') {
-      const buildingWithEffect = this.getAllBuildings().find(b => b.name === upgrade.effectOnBuilding)
+      const buildingWithEffect = BUILDINGS.find(b => b.name === upgrade.effectOnBuilding)
       if(buildingWithEffect !== undefined) {
         buildingWithEffect.effectBpS *= 2
       }

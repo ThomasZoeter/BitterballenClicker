@@ -1,0 +1,16 @@
+<p style="font-family:courier;">Upgrades</p>
+<div class="upgradeBlock">
+  @for (upgrade of upgrades;let idx =  $index;track idx) {
+    <upgrade-component [upgrade]="upgrade"
+                       [game]="this.game">
+    </upgrade-component>
+  }
+</div>
+<p style="font-family:courier;">Buildings</p>
+<div class="buildingBlock">
+  @for (building of buildings;let idx = $index;track idx) {
+    <building-component [building]="building"
+                        [game]="this.game">
+    </building-component>
+  }
+</div>
