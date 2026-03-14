@@ -30,20 +30,20 @@ export class UpgradeComponent {
 
   private setDescription(upgrade: UpgradeType): string {
     let effectText = ""
-    if (upgrade?.effectOnBuilding !== "") {
-      effectText = "This upgrade doubles the power of the " + upgrade?.effectOnBuilding + "."
+    if (upgrade.effectOnBuilding !== "") {
+      effectText = "This upgrade doubles the power of the " + upgrade.effectOnBuilding + "."
     }
-    if (upgrade?.effectOnBaseClicker !== 0) {
-      effectText = "This upgrade increases the base clicking power by " + upgrade?.effectOnBaseClicker + "."
+    if (upgrade.effectOnBaseClicker !== 0) {
+      effectText = "This upgrade increases the base clicking power by " + upgrade.effectOnBaseClicker + "."
     }
-    if (upgrade?.effectOnModClicker !== 0 && upgrade?.effectOnModClicker !== undefined) {
-      effectText = "This upgrade increases the clicking power by " + upgrade?.effectOnModClicker / 100 + " percent."
+    if (upgrade.effectOnModClicker !== 0 && upgrade.effectOnModClicker !== undefined) {
+      effectText = "This upgrade increases the clicking power by " + upgrade.effectOnModClicker / 100 + " percent."
     }
-    if (upgrade?.effectOnModBps !== 0 && upgrade?.effectOnModBps !== undefined) {
-      effectText = "This upgrade increases BpS by " + upgrade?.effectOnModBps + " percent."
+    if (upgrade.effectOnModBps !== 0 && upgrade.effectOnModBps !== undefined) {
+      effectText = "This upgrade increases BpS by " + upgrade.effectOnModBps + " percent."
     }
-    return <string>upgrade?.description + "\n"
-      + "Cost: " + upgrade?.cost + "\n"
+    return <string>upgrade.description + "\n"
+      + "Cost: " + upgrade.cost + "\n"
       + "Effect: " + effectText
 
   }

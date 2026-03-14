@@ -26,7 +26,7 @@ export class GameView implements OnInit {
   BBsWhileAway = 0
   hideBBsWhileAwayBlock = true
   middleScreen = 'Default'
-  localStorageUser?: LocalStorageUser
+  localStorageUser: LocalStorageUser
 
   constructor(private localStore: LocalStorageService, private game: Game) {
   }

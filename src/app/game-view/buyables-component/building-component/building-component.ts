@@ -21,31 +21,31 @@ export class BuildingComponent {
   }
 
 
-  public setHidden(building: BuildingType | undefined): boolean {
+  public setHidden(building: BuildingType): boolean {
     this.hovertext = this.setDescription(building)
 
     return !(building != undefined && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
   }
 
-  public setBuyable(building: BuildingType | undefined): boolean {
+  public setBuyable(building: BuildingType): boolean {
     return !(building != undefined
       && building.costTotal <= this.game.getGameState().realBB);
   }
 
-  public isSellable(building: BuildingType | undefined): boolean {
+  public isSellable(building: BuildingType): boolean {
     return !(building != undefined && building.amount > 0)
   }
 
-  private setDescription(building: BuildingType | undefined): string {
+  private setDescription(building: BuildingType): string {
 
     let totalGenerated = 0
-    if(building?.amount != undefined && building.effectBpS != undefined) {
-      totalGenerated = building?.amount * building?.effectBpS
+    if(building.amount != undefined && building.effectBpS != undefined) {
+      totalGenerated = building.amount * building.effectBpS
     }
 
-    return <string>building?.description + "\n"
-    + "1 of this building will generated " + building?.effectBpS + " bitterballen every second.\n"
-    + "You currently have " + building?.amount + " of this building.\n"
+    return <string>building.description + "\n"
+    + "1 of this building will generated " + building.effectBpS + " bitterballen every second.\n"
+    + "You currently have " + building.amount + " of this building.\n"
     + "These generate " + totalGenerated + " bitterballen every second."
   }
 }

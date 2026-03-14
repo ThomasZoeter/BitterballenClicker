@@ -13,23 +13,13 @@ import {UpgradeType} from '../../backend/upgrades/upgradeType';
 })
 
 export class StatsComponent implements OnInit {
-  @Input() upgradesBought?: UpgradeType[]
+  @Input() upgradesBought: UpgradeType[]
 
   constructor(protected game: Game){
-
-  }
-
-  private getBoughtUpgrade(boughtUpgrades: UpgradeType[] | undefined) {
-    if (boughtUpgrades != undefined) {
-      return boughtUpgrades.filter(u => u.hasBeenBought)
-    }
-    return undefined
   }
 
   ngOnInit(): void {
-    if (this.game != undefined) {
-      this.upgradesBought = this.getBoughtUpgrade(this.upgradesBought)
-    }
+      this.upgradesBought = this.upgradesBought.filter(u => u.hasBeenBought)
   }
 
 }
