@@ -41,3 +41,12 @@ export const BUILDINGS: BuildingType[] = [
     amount: 0,
   }
 ]
+
+export function getBuildingCount(building: String): Number {
+  const count = BUILDINGS.find(e => e.name == building)?.amount
+  if (count === undefined) {
+    return 0
+  }
+  return count
+
+}
