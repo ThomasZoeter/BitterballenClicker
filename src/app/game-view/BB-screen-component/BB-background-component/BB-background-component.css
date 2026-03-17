@@ -1,8 +1,8 @@
 /* ---- reset ---- */
-/*body {*/
-/*  margin: 0;*/
-/*  font: normal 75% Arial, Helvetica, sans-serif;*/
-/*}*/
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
 
 canvas {
   display: block;
@@ -18,7 +18,7 @@ canvas {
   background-image: url("/");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 50% 70%;
 }
 
 /* ---- stats.js ---- */
@@ -28,8 +28,8 @@ canvas {
   top: 48px;
   left: 0;
   width: 80px;
-  color: #13E8E9;
-  font-size: .8em;
+  color: #13e8e9;
+  font-size: 0.8em;
   text-align: left;
   text-indent: 4px;
   line-height: 14px;
@@ -42,7 +42,8 @@ canvas {
   font-size: 1.1em;
 }
 
-#stats, .count-particles {
+#stats,
+.count-particles {
   -webkit-user-select: none;
   margin-top: 5px;
   margin-left: 5px;
