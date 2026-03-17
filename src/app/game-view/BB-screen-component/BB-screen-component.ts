@@ -2,12 +2,14 @@ import {Component, Input, OnDestroy, OnInit, signal,} from '@angular/core';
 import {Game} from '../../backend/game';
 import {GameState} from '../../backend/game-state';
 import {interval, Subscription} from 'rxjs';
+import {BBBackgroundComponent} from './BB-background-component/BB-background-component';
 
 @Component({
   selector: 'BB-screen-component',
   standalone: true,
   styleUrl: './BB-screen-component.css',
   imports: [
+    BBBackgroundComponent
   ],
   templateUrl: './BB-screen-component.html'
 
