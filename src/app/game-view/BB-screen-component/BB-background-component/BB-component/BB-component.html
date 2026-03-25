@@ -1,0 +1,10 @@
+<div class="BB">
+  <h2 style="text-align: center">Number of bitterballen:</h2>
+  <h2 style="text-align: center">{{ onScreenBB() }}</h2>
+  <div style="text-align:center;">
+    <svg height="250" width="250" (click)="clickOnB()">
+      <circle r="110" cx="125" cy="125" fill="brown"/>
+    </svg>
+  </div>
+  <h3 style="text-align: center">BBs per second: {{ this.gameState.BpS }}</h3>
+</div>

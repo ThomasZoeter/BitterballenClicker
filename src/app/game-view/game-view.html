@@ -7,6 +7,11 @@
 
   </BB-screen-component>
 </div>
+<div class="right">
+  <buyables-component [buildings]="this.buildings"
+                      [upgrades]="this.upgrades">
+  </buyables-component>
+</div>
 <div class="middle">
   <div class="chooseMiddle">
     <button (click)="clickMiddleScreen('Default')">Default</button>
@@ -31,8 +36,4 @@
     <button (click)="hideBBsWhileAwayBlock = true">Ok</button>
   </div>
 </div>
-<div class="right">
-  <buyables-component [buildings]="this.buildings"
-                      [upgrades]="this.upgrades">
-  </buyables-component>
-</div>
+

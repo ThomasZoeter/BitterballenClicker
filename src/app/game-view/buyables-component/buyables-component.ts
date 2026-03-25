@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Game} from '../../backend/game';
+import {Component, Input} from '@angular/core';
 import {UpgradeType} from '../../backend/upgrades/upgradeType';
 import {BuildingComponent} from './building-component/building-component';
 import {UpgradeComponent} from './upgrade-component/upgrade-component';

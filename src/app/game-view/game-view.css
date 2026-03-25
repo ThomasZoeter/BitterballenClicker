@@ -12,6 +12,7 @@
     padding: 20px;
     float: left;
     width: 25%; /* The width is 30%, by default */
+    min-width: 400px;
     min-height: 93vh;
     border-width: 5px;
     border-style: solid;
@@ -20,17 +21,17 @@
 
 .middle {
     background-color: rosybrown;
-    float: left;
-    width: 55%; /* The width is 40%, by default */
+    /*width: 55%; !* The width is 40%, by default *!*/
     min-height: 93vh;
 }
 
 .right {
     background-color: sandybrown;
     padding: 10px;
-    float: left;
+    float: right;
     width: 20%; /* The width is 30%, by default */
     min-height: 93vh;
+    min-width: 200px;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -56,4 +57,17 @@
   border-bottom-style: solid;
   border-color: brown;
   width: 100%;
+}
+
+@media screen and (max-height: 600px) {
+  .left {
+    width: 400px;
+  }
+  .middle {
+
+  }
+  .right {
+    width: 200px;
+  }
+
 }
