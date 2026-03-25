@@ -1,19 +1,13 @@
 * {
     box-sizing: border-box;
 }
-
-.top {
-    background-color:saddlebrown;
-    padding:5px;
-}
-
 .left {
     background-color: sandybrown;
     padding: 20px;
     float: left;
     width: 25%; /* The width is 30%, by default */
     min-width: 400px;
-    min-height: 93vh;
+    min-height: 98vh;
     border-width: 5px;
     border-style: solid;
     border-color: red;
@@ -22,7 +16,7 @@
 .middle {
     background-color: rosybrown;
     /*width: 55%; !* The width is 40%, by default *!*/
-    min-height: 93vh;
+    min-height: 98vh;
 }
 
 .right {
@@ -30,7 +24,7 @@
     padding: 10px;
     float: right;
     width: 20%; /* The width is 30%, by default */
-    min-height: 93vh;
+    min-height: 98vh;
     min-width: 200px;
     border-width: 5px;
     border-style: solid;

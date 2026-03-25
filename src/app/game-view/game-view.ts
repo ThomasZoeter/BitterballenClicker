@@ -20,13 +20,14 @@ import {BBScreenComponent} from './BB-screen-component/BB-screen-component';
   styleUrl: './game-view.css',
   templateUrl: './game-view.html'
 })
-export class GameView implements OnInit {
+export class GameView implements OnInit, OnDestroy {
   public buildings: BuildingType[] = []
   public upgrades: UpgradeType[] = []
   BBsWhileAway = 0
   hideBBsWhileAwayBlock = true
   middleScreen = 'Default'
   localStorageUser: LocalStorageUser
+  private timerSubscription: Subscription | undefined;
 
   constructor(private localStore: LocalStorageService, private game: Game) {
   }
@@ -44,7 +45,16 @@ export class GameView implements OnInit {
         this.hideBBsWhileAwayBlock = false
       }
     }
+    this.timerSubscription = interval(5000).subscribe(() => {
+      this.localStorageUser.saveData()
+    });
+  }
 
+  ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leaks when the component is destroyed
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 
   public clickMiddleScreen(choice: string) {
