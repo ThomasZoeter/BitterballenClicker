@@ -37,15 +37,10 @@ export class BBComponent implements OnDestroy, OnInit{
     });
   }
 
-
-
   ngOnDestroy(): void {
     // Unsubscribe to prevent memory leaks when the component is destroyed
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
     }
   }
-
-
-
 }

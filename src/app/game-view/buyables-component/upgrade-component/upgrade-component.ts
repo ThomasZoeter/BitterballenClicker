@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Game} from '../../../backend/game';
 import {UpgradeType} from '../../../backend/upgrades/upgradeType';
 
@@ -10,7 +10,7 @@ import {UpgradeType} from '../../../backend/upgrades/upgradeType';
 
 })
 
-export class UpgradeComponent {
+export class UpgradeComponent implements OnInit {
   @Input() upgrade: UpgradeType
   hovertext = ""
 
@@ -18,8 +18,6 @@ export class UpgradeComponent {
   }
 
   public setHidden(upgrade: UpgradeType): boolean {
-    this.hovertext = this.setDescription(upgrade)
-
     return !(upgrade != undefined &&
       this.game !== undefined && !upgrade.hasBeenBought && upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
   }
@@ -46,5 +44,9 @@ export class UpgradeComponent {
       + "Cost: " + upgrade.cost + "\n"
       + "Effect: " + effectText
 
+  }
+
+  ngOnInit(): void {
+    this.hovertext = this.setDescription(this.upgrade)
   }
 }

@@ -1,10 +1,11 @@
 <div class="building" [hidden]="setHidden(building)" title="{{ hovertext }}">
   <div class="building-grid">
+     <button [disabled]="setBuyable(building)"  (click)="game.buyBuilding(building)">buy</button>
+    <button [disabled]="isSellable(building)" (click)="game.sellBuilding(building)">sell</button>
     <div class="name"> {{ building.name }}</div>
     <div class="amount"> {{ building.amount }}</div>
     <!--<div>-->
-    <!--    <button [disabled]="setBuyable(building)"  (click)="game.buyBuilding(building)">buy</button>-->
-    <!--    <button [disabled]="isSellable(building)" (click)="game.sellBuilding(building)">sell</button>-->
+
     <!--  </div> -->
     <div class="cost">Cost: {{ building.costTotal }} bitterballen</div>
   </div>

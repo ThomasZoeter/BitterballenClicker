@@ -63,6 +63,9 @@ canvas {
   width: 350px;
   height: 500px;
   overflow: hidden;     /* ensures particles don’t spill out */
+  border-width: 5px;
+  border-style: solid;
+  border-color: green;
 
 }
 

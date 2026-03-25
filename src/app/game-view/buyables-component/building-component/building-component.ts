@@ -1,5 +1,5 @@
 import {
-  Component, Input
+  Component, Input, OnInit
 } from '@angular/core';
 import {BuildingType} from "../../../backend/buildings/buildingType"
 import {Game} from '../../../backend/game';
@@ -12,9 +12,9 @@ import {Game} from '../../../backend/game';
 
 })
 
-export class BuildingComponent {
+export class BuildingComponent implements OnInit {
   @Input() building: BuildingType;
-  hovertext: string | undefined = "jo"
+  hovertext: string | undefined = ""
 
   constructor(protected game: Game){
 
@@ -22,8 +22,6 @@ export class BuildingComponent {
 
 
   public setHidden(building: BuildingType): boolean {
-    this.hovertext = this.setDescription(building)
-
     return !(building != undefined && building.costTotal / 2 <= this.game.getGameState().allTimeBB);
   }
 
@@ -47,5 +45,9 @@ export class BuildingComponent {
     + "1 of this building will generated " + building.effectBpS + " bitterballen every second.\n"
     + "You currently have " + building.amount + " of this building.\n"
     + "These generate " + totalGenerated + " bitterballen every second."
+  }
+
+  ngOnInit(): void {
+    this.hovertext = this.setDescription(this.building)
   }
 }
