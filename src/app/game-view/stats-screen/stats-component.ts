@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import {Game} from '../../backend/game';
 import {UpgradeType} from '../../backend/upgrades/upgradeType';
+import {LocalStorageUser} from '../../backend/local-storage/local-storage-user';
 
 @Component({
   selector: 'stats-component',
@@ -14,6 +15,7 @@ import {UpgradeType} from '../../backend/upgrades/upgradeType';
 
 export class StatsComponent implements OnInit {
   @Input() upgradesBought: UpgradeType[]
+  @Input() localStorageUser: LocalStorageUser
 
   constructor(protected game: Game){
   }

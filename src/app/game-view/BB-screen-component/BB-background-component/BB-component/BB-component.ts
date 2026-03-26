@@ -21,6 +21,7 @@ export class BBComponent implements OnDestroy, OnInit{
 
   gameState: GameState
   private timerSubscription: Subscription | undefined;
+  private timerSubscriptionStart: Subscription | undefined;
   constructor(private game: Game) {
     this.gameState = this.game.getGameState()
   }
@@ -30,6 +31,20 @@ export class BBComponent implements OnDestroy, OnInit{
   }
 
   ngOnInit() {
+    const startup = Math.floor(this.gameState.realBB / 20)
+    let start = 0
+    this.timerSubscriptionStart = interval(50).subscribe(() => {
+      start += startup
+      this.onScreenBB.update(() => start)
+    });
+    setTimeout(() => {
+      // Unsubscribes BOTH subscription and childSubscription
+      if (this.timerSubscriptionStart instanceof Subscription) {
+        this.timerSubscriptionStart.unsubscribe();
+      }
+    }, 1000);
+
+
     // interval(1000) emits a value every 1000ms (1 second)
     this.timerSubscription = interval(1000).subscribe(() => {
       this.onScreenBB.update(() => this.game.addBpS())

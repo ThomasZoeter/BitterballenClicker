@@ -15,7 +15,7 @@
   </div>
   @if (this.middleScreen === 'Statistics') {
     <div>
-      <stats-component [upgradesBought]="this.upgrades"
+      <stats-component [upgradesBought]="this.upgrades" [localStorageUser]="this.localStorageUser"
       ></stats-component>
     </div>
   }
