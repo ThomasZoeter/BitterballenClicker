@@ -16,7 +16,7 @@ import {Game} from '../../../../backend/game';
 })
 
 export class BBComponent implements OnDestroy, OnInit{
-  public onScreenBB = signal(0)
+  public onScreenBB = signal("")
   public onScreenTotalBB = signal(0)
 
   gameState: GameState
@@ -27,29 +27,40 @@ export class BBComponent implements OnDestroy, OnInit{
   }
 
   public clickOnB() {
-    this.onScreenBB.update(() => this.game.clickBB())
+    this.onScreenBB.update(() => this.transformNumBBToString(this.game.clickBB()))
   }
 
   ngOnInit() {
+    // Flow to BB count in 1 sec - subscription
     const startup = Math.floor(this.gameState.realBB / 20)
     let start = 0
     this.timerSubscriptionStart = interval(50).subscribe(() => {
       start += startup
-      this.onScreenBB.update(() => start)
+      this.onScreenBB.update(() => this.transformNumBBToString(start))
     });
     setTimeout(() => {
-      // Unsubscribes BOTH subscription and childSubscription
       if (this.timerSubscriptionStart instanceof Subscription) {
         this.timerSubscriptionStart.unsubscribe();
       }
     }, 1000);
 
-
-    // interval(1000) emits a value every 1000ms (1 second)
+    // BpS subscription
     this.timerSubscription = interval(1000).subscribe(() => {
-      this.onScreenBB.update(() => this.game.addBpS())
+      this.onScreenBB.update(() => this.transformNumBBToString(this.game.addBpS()))
       this.onScreenTotalBB.update(() => this.game.getGameState().allTimeBB)
     });
+  }
+
+  private transformNumBBToString(num: number): string {
+    let result: string = num + ""
+    if(num > 1000) {
+      result = num / 1000 + " thousand"
+    }
+    if(num > 1000000)  {
+      result = Math.floor(num / 1000) / 1000 + " million" // In parts to make sure there are 3 digits
+    }
+
+    return result;
   }
 
   ngOnDestroy(): void {
