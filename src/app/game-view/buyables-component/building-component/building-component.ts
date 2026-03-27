@@ -1,7 +1,7 @@
 import {
   Component, Input, OnInit
 } from '@angular/core';
-import {BuildingType} from "../../../backend/buildings/buildingType"
+import {BuildingType, getBuildingCount} from "../../../backend/buildings/buildingType"
 import {Game} from '../../../backend/game';
 
 @Component({
@@ -49,5 +49,9 @@ export class BuildingComponent implements OnInit {
 
   ngOnInit(): void {
     this.hovertext = this.setDescription(this.building)
+    // Set cost of building based on number of buildings you have
+    if(this.building.amount > 0) {
+      this.building.costTotal = Math.floor(this.building.costBase * Math.pow(this.building.amount,2))
+    }
   }
 }

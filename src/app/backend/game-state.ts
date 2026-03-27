@@ -1,4 +1,5 @@
 import {signal} from '@angular/core';
+import {BUILDINGS} from './buildings/buildingType';
 
 export class GameState {
   public realBB = 0
@@ -23,5 +24,9 @@ export class GameState {
     this.baseClickingPower = 1
     this.clickingPowerModifier = 100
     this.actualClickingPower = 1
+
+    for (const building of BUILDINGS) {
+      building.amount = 0
+    }
   }
 }
