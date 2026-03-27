@@ -1,6 +1,6 @@
 import {LocalStorageService} from './local-storage-service';
 import {Game} from '../game';
-import {BUILDINGS, getBuildingCount} from '../buildings/buildingType';
+import {BUILDINGS, getBuildingCount, setBuildingCount} from '../buildings/buildingType';
 
 export class LocalStorageUser {
   constructor(private localStorage: LocalStorageService, private game: Game) {
@@ -23,7 +23,10 @@ export class LocalStorageUser {
     this.game.getGameState().baseClickingPower = Number(this.localStorage.getData("baseClickingPower"))
     this.game.getGameState().clickingPowerModifier = Number(this.localStorage.getData("clickingPowerModifier"))
 
-    // getBuildingCount("Frituur").amount = Number(this.localStorage.getData("FrituurCount"))
+    // get all buildingscounts from local storage
+    for(const building of BUILDINGS) {
+      setBuildingCount(building.name,Number(this.localStorage.getData(building.name + "Count")))
+    }
 
     // TODO: retrieve more data
   }
@@ -39,9 +42,11 @@ export class LocalStorageUser {
     this.localStorage.setData("actualClickingPower",this.game.getGameState().actualClickingPower.toString())
     this.localStorage.setData("baseClickingPower",this.game.getGameState().baseClickingPower.toString())
     this.localStorage.setData("clickingPowerModifier",this.game.getGameState().clickingPowerModifier.toString())
-    //this.localStorage.setData("FrituurCount",getBuilding("Frituur").amount.toString())
 
-
+    // save all buildings as <buildingname>Count in local storage
+    for(const building of BUILDINGS) {
+      this.localStorage.setData(building.name + "Count",getBuildingCount(building.name).toString())
+    }
 
     // save last save date so that offline count can be done
     const dateTimeOnLastSave = new Date()

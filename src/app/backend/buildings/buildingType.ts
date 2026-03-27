@@ -48,5 +48,12 @@ export function getBuildingCount(building: String): Number {
     return 0
   }
   return count
+}
 
+export function setBuildingCount(building: String, count: number) {
+  const buildingWithEffect = BUILDINGS.find(e => e.name == building)
+  if (buildingWithEffect === undefined) {
+    return
+  }
+  buildingWithEffect.amount = count
 }
