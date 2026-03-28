@@ -38,7 +38,6 @@ export class Game {
     selectedBuilding.amount += 1
     selectedBuilding.costTotal = Math.floor(selectedBuilding.costBase * Math.pow(selectedBuilding.amount,2))
 
-
     return this.gameState.realBB
   }
 
@@ -67,6 +66,5 @@ export class Game {
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
 
     upgrade.hasBeenBought = true
-
   }
 }

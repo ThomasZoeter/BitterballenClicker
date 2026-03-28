@@ -1,6 +1,7 @@
 import {LocalStorageService} from './local-storage-service';
 import {Game} from '../game';
 import {BUILDINGS, getBuildingCount, setBuildingCount} from '../buildings/buildingType';
+import {UPGRADES} from '../upgrades/upgradeType';
 
 export class LocalStorageUser {
   constructor(private localStorage: LocalStorageService, private game: Game) {
@@ -28,7 +29,9 @@ export class LocalStorageUser {
       setBuildingCount(building.name,Number(this.localStorage.getData(building.name + "Count")))
     }
 
-    // TODO: retrieve more data
+    for (const upgrade of UPGRADES) {
+      upgrade.hasBeenBought = this.localStorage.getData(upgrade.name) == "true"
+    }
   }
 
   saveData() {
@@ -48,12 +51,15 @@ export class LocalStorageUser {
       this.localStorage.setData(building.name + "Count",getBuildingCount(building.name).toString())
     }
 
+    for (const upgrade of UPGRADES) {
+      if(upgrade.hasBeenBought) {
+        this.localStorage.setData(upgrade.name,"true")
+      }
+    }
+
     // save last save date so that offline count can be done
     const dateTimeOnLastSave = new Date()
     this.localStorage.setData("dateTimeSinceLastSave",dateTimeOnLastSave.toString())
-
-    // TODO: add more data to save, like buildings and upgrades
-
   }
 
   addBBsWhileAway(): number {
