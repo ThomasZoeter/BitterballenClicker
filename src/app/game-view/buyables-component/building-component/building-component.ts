@@ -17,7 +17,6 @@ export class BuildingComponent implements OnInit {
   hovertext: string | undefined = ""
 
   constructor(protected game: Game){
-
   }
 
 

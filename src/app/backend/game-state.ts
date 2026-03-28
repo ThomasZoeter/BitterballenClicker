@@ -1,5 +1,6 @@
 import {signal} from '@angular/core';
 import {BUILDINGS} from './buildings/buildingType';
+import {UPGRADES} from './upgrades/upgradeType';
 
 export class GameState {
   public realBB = 0
@@ -27,6 +28,9 @@ export class GameState {
 
     for (const building of BUILDINGS) {
       building.amount = 0
+    }
+    for (const upgrade of UPGRADES) {
+      upgrade.hasBeenBought = false
     }
   }
 }

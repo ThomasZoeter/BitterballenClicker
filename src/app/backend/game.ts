@@ -52,6 +52,11 @@ export class Game {
 
   public buyUpgrade(upgrade: UpgradeType){
     this.gameState.realBB -= upgrade.cost
+    this.applyUpgradeEffect(upgrade)
+    upgrade.hasBeenBought = true
+  }
+
+  public applyUpgradeEffect(upgrade: UpgradeType) {
     if(upgrade.effectOnBuilding != '') {
       const buildingWithEffect = BUILDINGS.find(b => b.name === upgrade.effectOnBuilding)
       if(buildingWithEffect !== undefined) {
@@ -64,7 +69,5 @@ export class Game {
 
     this.gameState.BpSModifier += upgrade.effectOnModBps
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
-
-    upgrade.hasBeenBought = true
   }
 }

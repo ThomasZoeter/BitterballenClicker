@@ -48,5 +48,10 @@ export class UpgradeComponent implements OnInit {
 
   ngOnInit(): void {
     this.hovertext = this.setDescription(this.upgrade)
+    // On init, if an upgrade has been bought then the effect should be applied
+    if(this.upgrade.hasBeenBought) {
+      console.log(this.upgrade.name + " has been bought!")
+      this.game.applyUpgradeEffect(this.upgrade)
+    }
   }
 }
