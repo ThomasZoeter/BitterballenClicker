@@ -6,9 +6,17 @@
   }
 </div>
 <p style="font-family:courier;">Buildings</p>
+
+<!--<div class="toggler">-->
+<!--  <input type=checkbox id=”toggle” class=”toggleCheckbox”/>-->
+<!--  <label for=”toggle” class=’toggleContainer’>-->
+<!--    <div>Buy</div>-->
+<!--    <div>Sell</div>-->
+<!--  </label>-->
+<!--</div>-->
 <div class="buildingBlock">
   @for (building of buildings;let idx = $index;track idx) {
-    <building-component [building]="building">
+    <building-component [building]="building" [buying]="true">
     </building-component>
   }
 </div>

@@ -2,17 +2,23 @@
   border-width: 5px;
   border-style: solid;
   border-color: red;
+  background-color: lightgoldenrodyellow;
+}
+
+.notBuyableBuilding {
+  border-width: 5px;
+  border-style: solid;
+  border-color: red;
+  background-color: gray;
 }
 
 .building-grid {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: dodgerblue;
   height: 100px
 }
 
 .building-grid div {
-  background-color: #f1f1f1;
   text-align: center;
 }
 
