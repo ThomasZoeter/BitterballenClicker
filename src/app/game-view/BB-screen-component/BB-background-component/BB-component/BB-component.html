@@ -2,9 +2,7 @@
   <h2 style="text-align: center">Number of bitterballen:</h2>
   <h2 style="text-align: center">{{ onScreenBB() }}</h2>
   <div style="text-align:center;">
-    <svg height="250" width="250" (click)="clickOnB()">
-      <circle r="110" cx="125" cy="125" fill="brown"/>
-    </svg>
+    <img ngSrc="app/assets/BB_Pic.png" alt="BB Picture" height="260" width="293" (click)="clickOnB()">
   </div>
   <h3 style="text-align: center">BBs per second: {{ this.gameState.BpS }}</h3>
 </div>
