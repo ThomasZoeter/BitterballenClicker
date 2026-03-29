@@ -1,4 +1,5 @@
 export type UpgradeType = {
+  id: number
   name: string
   description: string
   cost: number
@@ -11,6 +12,7 @@ export type UpgradeType = {
 
 export const UPGRADES: UpgradeType[] = [
   {
+    id: 1,
     name: "Clicker_1",
     description: "This upgrade will increases base clickerpower.",
     cost: 50,
@@ -21,6 +23,7 @@ export const UPGRADES: UpgradeType[] = [
     hasBeenBought: false
   },
   {
+    id: 2,
     name: "BpS_1",
     description: "This upgrade will increases BpS modifier with 100%.",
     cost: 150,
@@ -31,6 +34,7 @@ export const UPGRADES: UpgradeType[] = [
     hasBeenBought: false
   },
   {
+    id: 3,
     name: "FrituurMod_1",
     description: "Doubles bitterballen created by frituur.",
     cost: 250,
