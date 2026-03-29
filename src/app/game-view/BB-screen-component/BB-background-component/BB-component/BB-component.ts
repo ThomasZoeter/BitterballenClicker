@@ -1,15 +1,17 @@
-import {Component, Input, OnDestroy, OnInit, signal,} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, signal,} from '@angular/core';
 
 
 import {interval, Subscription} from 'rxjs';
 import {GameState} from '../../../../backend/game-state';
 import {Game} from '../../../../backend/game';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'BB-component',
   standalone: true,
   styleUrl: './BB-component.css',
   imports: [
+    NgOptimizedImage
   ],
   templateUrl: './BB-component.html'
 
@@ -30,6 +32,11 @@ export class BBComponent implements OnDestroy, OnInit{
     this.onScreenBB.update(() => this.transformNumBBToString(this.game.clickBB()))
   }
 
+  doActionPerSecond() {
+    this.onScreenBB.update(() => this.transformNumBBToString(this.game.addBpS()))
+    this.onScreenTotalBB.update(() => this.game.getGameState().allTimeBB)
+  }
+
   ngOnInit() {
     // Flow to BB count in 1 sec - subscription
     const startup = Math.floor(this.gameState.realBB / 20)
@@ -46,8 +53,8 @@ export class BBComponent implements OnDestroy, OnInit{
 
     // BpS subscription
     this.timerSubscription = interval(1000).subscribe(() => {
-      this.onScreenBB.update(() => this.transformNumBBToString(this.game.addBpS()))
-      this.onScreenTotalBB.update(() => this.game.getGameState().allTimeBB)
+      this.doActionPerSecond()
+
     });
   }
 
@@ -86,8 +93,6 @@ export class BBComponent implements OnDestroy, OnInit{
     if(num > Math.pow(10,33))  {
       result = Math.floor(num / Math.pow(10,30)) / 1000 + " decillion"
     }
-
-
     return result;
   }
 
