@@ -1,9 +1,10 @@
 import {
-  Component, Input, OnInit
+  Component, Input, OnDestroy, OnInit, signal
 } from '@angular/core';
 import {Game} from '../../backend/game';
 import {UpgradeType} from '../../backend/upgrades/upgradeType';
 import {LocalStorageUser} from '../../backend/local-storage/local-storage-user';
+import {interval, Subscription} from 'rxjs';
 
 @Component({
   selector: 'stats-component',
@@ -13,15 +14,30 @@ import {LocalStorageUser} from '../../backend/local-storage/local-storage-user';
 
 })
 
-export class StatsComponent implements OnInit {
+export class StatsComponent implements OnInit, OnDestroy {
   @Input() upgradesBought: UpgradeType[]
   @Input() localStorageUser: LocalStorageUser
 
-  constructor(protected game: Game){
+  allTimeBBSig = signal(0)
+
+  private timerSubscription: Subscription | undefined;
+
+  constructor(protected game: Game) {
   }
 
   ngOnInit(): void {
-      this.upgradesBought = this.upgradesBought.filter(u => u.hasBeenBought)
+    this.upgradesBought = this.upgradesBought.filter(u => u.hasBeenBought)
+    this.timerSubscription = interval(3000).subscribe(() => {
+      this.allTimeBBSig.update(() => this.game.getGameState().allTimeBB)
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leaks when the component is destroyed
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 
 }
