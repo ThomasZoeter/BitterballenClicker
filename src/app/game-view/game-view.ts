@@ -7,7 +7,7 @@ import {LocalStorageService} from '../backend/local-storage/local-storage-servic
 import {LocalStorageUser} from '../backend/local-storage/local-storage-user';
 import {BuyablesComponent} from './buyables-component/buyables-component';
 import {BBScreenComponent} from './BB-screen-component/BB-screen-component';
-import {BBComponent} from './BB-screen-component/BB-background-component/BB-component/BB-component';
+import {BBComponent} from './BB-screen-component/BB-background-component/BB-rain-component/BB-component/BB-component';
 import {MiddleScreenComponent} from './middle-screen-component/middle-screen-component';
 
 @Component({
