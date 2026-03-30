@@ -2,8 +2,8 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit, signal,} from '@angular
 
 
 import {interval, Subscription} from 'rxjs';
-import {GameState} from '../../../../backend/game-state';
-import {Game} from '../../../../backend/game';
+import {GameState} from '../../../../../backend/game-state';
+import {Game} from '../../../../../backend/game';
 import {NgOptimizedImage} from '@angular/common';
 
 @Component({

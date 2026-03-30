@@ -1,0 +1,118 @@
+canvas {
+  display: block;
+} /* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;  /* background layer */
+  /*background-image: url("/");*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  background-position: 50% 50%;
+} /* ---- stats.js ---- */
+.count-particles {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.js-count-particles {
+  font-size: 1.1em;
+}
+#stats,
+.count-particles {
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+
+.BB {
+  position: absolute;
+  width: 300px;
+  height: 350px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centers it */
+
+  z-index: 2;  /* above particles */
+  /*background: rgba(255, 255, 255, 0.8); !* optional for readability *!*/
+}
+
+.particles-container {
+  position: relative;   /* important for positioning children */
+  width: 419px;
+  height: 650px;
+  overflow: hidden;     /* ensures particles don’t spill out */
+  border-width: 5px;
+  border-style: solid;
+  border-color: green;
+}
+
+@media screen and (max-height: 600px) {
+  .particles-container {
+    height: 500px;
+    width: 346px;
+  }
+}
+
+
+
+
+/*.title {*/
+/*  font-size: 2.5rem;*/
+/*  font-family: "Lobster", cursive;*/
+/*}*/
+
+/*.wrapper {*/
+/*  animation: scroll 100s linear infinite;*/
+/*  background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"),*/
+/*  #111111;*/
+/*  color: #eee;*/
+/*  height: 500px;*/
+/*  min-width: 360px;*/
+/*  width: 100%;*/
+/*  display: compact;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  perspective: 1000px;*/
+/*  perspective-origin: 50% 50%;*/
+/*}*/
+
+/*@keyframes scroll {*/
+/*  100% {*/
+/*    background-position: 0px -400%;*/
+/*  }*/
+/*}*/
+
+/*!* Fallback if the operatring system prefers reduced motion*!*/
+/*@media (prefers-reduced-motion) {*/
+/*  .wrapper {*/
+/*    animation: scroll 800s linear infinite;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 670px) {*/
+/*  .title {*/
+/*    font-size: 5rem;*/
+/*  }*/
+/*}*/
+
