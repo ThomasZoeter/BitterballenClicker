@@ -1,9 +1,9 @@
 import {
   Component, Input, OnDestroy, OnInit, signal
 } from '@angular/core';
-import {Game} from '../../backend/game';
-import {UpgradeType} from '../../backend/upgrades/upgradeType';
-import {LocalStorageUser} from '../../backend/local-storage/local-storage-user';
+import {Game} from '../../../backend/game';
+import {UpgradeType} from '../../../backend/upgrades/upgradeType';
+import {LocalStorageUser} from '../../../backend/local-storage/local-storage-user';
 import {interval, Subscription} from 'rxjs';
 
 @Component({
@@ -27,6 +27,8 @@ export class StatsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.upgradesBought = this.upgradesBought.filter(u => u.hasBeenBought)
+    this.allTimeBBSig.update(() => this.game.getGameState().allTimeBB)
+    //Update statistics every 3 seconds
     this.timerSubscription = interval(3000).subscribe(() => {
       this.allTimeBBSig.update(() => this.game.getGameState().allTimeBB)
     });

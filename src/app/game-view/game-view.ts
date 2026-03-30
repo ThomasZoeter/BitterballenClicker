@@ -1,21 +1,22 @@
-import {Component, DoCheck, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {interval, Subscription} from 'rxjs';
 import {Game} from "../backend/game";
 import {BUILDINGS, BuildingType} from '../backend/buildings/buildingType';
 import {UPGRADES, UpgradeType} from '../backend/upgrades/upgradeType';
-import {StatsComponent} from './stats-screen/stats-component';
 import {LocalStorageService} from '../backend/local-storage/local-storage-service';
 import {LocalStorageUser} from '../backend/local-storage/local-storage-user';
 import {BuyablesComponent} from './buyables-component/buyables-component';
 import {BBScreenComponent} from './BB-screen-component/BB-screen-component';
+import {BBComponent} from './BB-screen-component/BB-background-component/BB-component/BB-component';
+import {MiddleScreenComponent} from './middle-screen-component/middle-screen-component';
 
 @Component({
   selector: 'game-view',
   standalone: true,
   imports: [
-    StatsComponent,
     BuyablesComponent,
-    BBScreenComponent
+    BBScreenComponent,
+    MiddleScreenComponent
   ],
   styleUrl: './game-view.css',
   templateUrl: './game-view.html'
@@ -25,9 +26,11 @@ export class GameView implements OnInit, OnDestroy {
   public upgrades: UpgradeType[] = []
   BBsWhileAway = 0
   hideBBsWhileAwayBlock = true
-  middleScreen = 'Default'
   localStorageUser: LocalStorageUser
-  private timerSubscription: Subscription | undefined;
+  private timerSubscriptionSave: Subscription | undefined;
+  private timerSubscriptionBpS: Subscription | undefined;
+
+  @ViewChild(BBComponent) BB:BBComponent
 
   constructor(private localStore: LocalStorageService, private game: Game) {
   }
@@ -45,23 +48,18 @@ export class GameView implements OnInit, OnDestroy {
         this.hideBBsWhileAwayBlock = false
       }
     }
-    this.timerSubscription = interval(5000).subscribe(() => {
+    this.timerSubscriptionSave = interval(5000).subscribe(() => {
       this.localStorageUser.saveData()
     });
   }
 
   ngOnDestroy(): void {
     // Unsubscribe to prevent memory leaks when the component is destroyed
-    if (this.timerSubscription) {
-      this.timerSubscription.unsubscribe();
+    if (this.timerSubscriptionSave) {
+      this.timerSubscriptionSave.unsubscribe();
     }
-  }
-
-  public clickMiddleScreen(choice: string) {
-    if (choice === "Statistics") {
-      this.middleScreen = "Statistics"
-    } else {
-      this.middleScreen = "Default"
+    if (this.timerSubscriptionBpS) {
+      this.timerSubscriptionBpS.unsubscribe();
     }
   }
 }

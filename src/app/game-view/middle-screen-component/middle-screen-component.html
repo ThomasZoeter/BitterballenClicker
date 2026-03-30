@@ -1,0 +1,17 @@
+<div class="chooseMiddle">
+  <button (click)="clickMiddleScreen('Default')">Default</button>
+  <button (click)="clickMiddleScreen('Statistics')">Statistics</button>
+</div>
+@if (this.middleScreen === 'Statistics') {
+  <div>
+    <stats-component [upgradesBought]="this.upgrades"
+                     [localStorageUser]="this.localStorageUser"
+    ></stats-component>
+  </div>
+}
+@if (this.middleScreen === 'Default') {
+  <div>
+    <p>This is the default screen</p>
+
+  </div>
+}

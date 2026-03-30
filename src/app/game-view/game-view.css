@@ -45,14 +45,6 @@
   left: 45%;
 }
 
-.chooseMiddle {
-  background-color:saddlebrown;
-  border-width: 5px;
-  border-bottom-style: solid;
-  border-color: brown;
-  width: 100%;
-}
-
 @media screen and (max-height: 600px) {
   .left {
     width: 400px;
