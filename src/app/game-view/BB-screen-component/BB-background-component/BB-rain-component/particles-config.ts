@@ -3,10 +3,11 @@ export const ParticlesConfig = {
     number: { value: 80, density: { enable: true, value_area: 800 } },
     color: { value: "#af9d1b" },
     shape: {
-      type: "circle",
+      type: "image",
       stroke: { width: 0, color: "#000000" },
       polygon: { nb_sides: 5 },
-      image: { src: "img/github.svg", width: 50, height: 50 }
+      opacity: 0.5,
+      image: { src: "app/assets/BBPic.png", width: 27, height: 25}
     },
     opacity: {
       value: 0.809723090737089,
@@ -34,7 +35,7 @@ export const ParticlesConfig = {
       out_mode: "out",
       bounce: false,
       attract: {
-        enable: true,
+        enable: false,
         rotateX: 561.194221302933,
         rotateY: 561.194221302933
       }
