@@ -59,7 +59,7 @@ canvas {
 
 .particles-container {
   position: relative;   /* important for positioning children */
-  width: 419px;
+  width: 425px;
   height: 650px;
   overflow: hidden;     /* ensures particles don’t spill out */
   border-width: 5px;
@@ -70,7 +70,7 @@ canvas {
 @media screen and (max-height: 600px) {
   .particles-container {
     height: 500px;
-    width: 346px;
+    width: 350px;
   }
 }
 
