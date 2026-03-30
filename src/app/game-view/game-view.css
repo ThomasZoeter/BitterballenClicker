@@ -1,21 +1,32 @@
 * {
     box-sizing: border-box;
 }
+
+.separator-left {
+  width: 15px;
+  float: left;
+  background-color: red;
+  min-height: 98vh;
+}
+
+.separator-right {
+  width: 15px;
+  float: right;
+  background-color: blue;
+  min-height: 98vh;
+}
+
 .left {
     background-color: sandybrown;
     padding: 20px;
     float: left;
-    width: 25%; /* The width is 30%, by default */
+    width: 25%;
     min-width: 400px;
     min-height: 98vh;
-    border-width: 5px;
-    border-style: solid;
-    border-color: red;
 }
 
 .middle {
     background-color: rosybrown;
-    /*width: 55%; !* The width is 40%, by default *!*/
     min-height: 98vh;
 }
 
@@ -23,12 +34,9 @@
     background-color: sandybrown;
     padding: 10px;
     float: right;
-    width: 20%; /* The width is 30%, by default */
+    width: 20%;
     min-height: 98vh;
     min-width: 200px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: red;
 }
 
 .SinceLastSave {
