@@ -1,9 +1,11 @@
-<div [class.building]="setBuyable()"
-     [class.notBuyableBuilding]="!setBuyable()"
+<div
+    [class.building]="shouldBuy()"
+     [class.notBuyableBuilding]="!shouldBuy()"
      [hidden]="setHidden(building)"
      title="{{ hovertext }}"
      (click)="buyOrSell()">
   <div class="building-grid">
+    <div class="icon"></div>
     <div class="name"> {{ building.name }}</div>
     <div class="amount"> {{ building.amount }}</div>
     <div class="cost">Cost: {{ building.costTotal }} bitterballen</div>

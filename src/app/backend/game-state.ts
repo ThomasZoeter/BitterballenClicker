@@ -4,7 +4,10 @@ import {UPGRADES} from './upgrades/upgradeType';
 
 export class GameState {
   public realBB = 0
+  public realBBSig = signal(0)
+
   public allTimeBB = 0
+  public allTimeBBScreen = signal(0)
 
   public baseBpS = 0
   public BpSModifier = 100
