@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .separator-left {
@@ -23,26 +23,26 @@
 }
 
 .left {
-    background-color: sandybrown;
-    padding: 20px;
-    float: left;
-    width: 25%;
-    min-width: 400px;
-    min-height: 98vh;
+  background-color: sandybrown;
+  padding: 20px;
+  float: left;
+  width: 25%;
+  min-width: 400px;
+  min-height: 98vh;
 }
 
 .middle {
-    background-color: rosybrown;
-    min-height: 98vh;
+  background-color: rosybrown;
+  min-height: 98vh;
 }
 
 .right {
-    background-color: sandybrown;
-    padding: 10px;
-    float: right;
-    width: 20%;
-    min-height: 98vh;
-    min-width: 200px;
+  background-color: sandybrown;
+  padding: 10px;
+  float: right;
+  width: 22%;
+  min-height: 98vh;
+  min-width: 200px;
 }
 
 .SinceLastSave {
@@ -55,7 +55,7 @@
   border-width: 5px;
   border-style: solid;
   position: fixed;
-  bottom:0%;
+  bottom: 0%;
   left: 45%;
 }
 
@@ -63,9 +63,11 @@
   .left {
     width: 400px;
   }
+
   .middle {
 
   }
+
   .right {
     width: 375px;
   }

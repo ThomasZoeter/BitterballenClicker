@@ -1,18 +1,19 @@
 .building {
   border-width: 5px;
   border-style: solid;
-  border-color: red;
-  background-color: lightgoldenrodyellow;
+  border-color: sandybrown;
+  background-color: darkgoldenrod;
 }
 
 .building:hover {
-  background-color: deepskyblue;
+  background-color: lightgoldenrodyellow;
+  transform: translateX(-15px);
 }
 
 .notBuyableBuilding {
   border-width: 5px;
   border-style: solid;
-  border-color: red;
+  border-color: lightslategray;
   background-color: gray;
 }
 
