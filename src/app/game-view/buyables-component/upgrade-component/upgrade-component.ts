@@ -17,37 +17,37 @@ export class UpgradeComponent implements OnInit {
   constructor(protected game: Game) {
   }
 
-  public setHidden(upgrade: UpgradeType): boolean {
-    return !(upgrade != undefined &&
-      this.game !== undefined && !upgrade.hasBeenBought && upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
+  public setHidden(): boolean {
+    return !(this.upgrade != undefined &&
+      this.game !== undefined && !this.upgrade.hasBeenBought && this.upgrade.cost / 2 <= this.game.getGameState().allTimeBB);
   }
 
-  public setBuyable(upgrade: UpgradeType): boolean {
-    return !(upgrade != undefined && upgrade.cost <= this.game.getGameState().realBB);
+  public setBuyable(): boolean {
+    return !(this.upgrade != undefined && this.upgrade.cost <= this.game.getGameState().realBB);
   }
 
-  private setDescription(upgrade: UpgradeType): string {
+  private setDescription(): string {
     let effectText = ""
-    if (upgrade.effectOnBuilding !== "") {
-      effectText = "This upgrade doubles the power of the " + upgrade.effectOnBuilding + "."
+    if (this.upgrade.effectOnBuilding !== "") {
+      effectText = "This upgrade doubles the power of the " + this.upgrade.effectOnBuilding + "."
     }
-    if (upgrade.effectOnBaseClicker !== 0) {
-      effectText = "This upgrade increases the base clicking power by " + upgrade.effectOnBaseClicker + "."
+    if (this.upgrade.effectOnBaseClicker !== 0) {
+      effectText = "This upgrade increases the base clicking power by " + this.upgrade.effectOnBaseClicker + "."
     }
-    if (upgrade.effectOnModClicker !== 0 && upgrade.effectOnModClicker !== undefined) {
-      effectText = "This upgrade increases the clicking power by " + upgrade.effectOnModClicker / 100 + " percent."
+    if (this.upgrade.effectOnModClicker !== 0 && this.upgrade.effectOnModClicker !== undefined) {
+      effectText = "This upgrade increases the clicking power by " + this.upgrade.effectOnModClicker / 100 + " percent."
     }
-    if (upgrade.effectOnModBps !== 0 && upgrade.effectOnModBps !== undefined) {
-      effectText = "This upgrade increases BpS by " + upgrade.effectOnModBps + " percent."
+    if (this.upgrade.effectOnModBps !== 0 && this.upgrade.effectOnModBps !== undefined) {
+      effectText = "This upgrade increases BpS by " + this.upgrade.effectOnModBps + " percent."
     }
-    return <string>upgrade.description + "\n"
-      + "Cost: " + upgrade.cost + "\n"
+    return <string>this.upgrade.description + "\n"
+      + "Cost: " + this.upgrade.cost + "\n"
       + "Effect: " + effectText
 
   }
 
   ngOnInit(): void {
-    this.hovertext = this.setDescription(this.upgrade)
+    this.hovertext = this.setDescription()
     // On init, if an upgrade has been bought then the effect should be applied
     if(this.upgrade.hasBeenBought) {
       console.log(this.upgrade.name + " has been bought!")

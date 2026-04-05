@@ -1,13 +1,19 @@
 <div
     [class.building]="shouldBuy()"
      [class.notBuyableBuilding]="!shouldBuy()"
-     [hidden]="setHidden(building)"
+     [hidden]="setHidden()"
      title="{{ hovertext }}"
      (click)="buyOrSell()">
   <div class="building-grid">
     <div class="icon"></div>
     <div class="name"> {{ building.name }}</div>
     <div class="amount"> {{ building.amount }}</div>
-    <div class="cost">Cost: {{ building.costTotal }} bitterballen</div>
+    @if(!this.buying) {
+      <div class="sell">Cost: {{ building.costTotal }} bitterballen</div>
+    }
+    @else {
+      <div class="cost">Cost: {{ building.costTotal }} bitterballen</div>
+    }
+
   </div>
 </div>
