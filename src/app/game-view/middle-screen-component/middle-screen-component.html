@@ -6,7 +6,7 @@
   <div class="top-down-separator">
   </div>
   @if (this.middleScreen === 'Statistics') {
-    <div>
+    <div animate.enter="enter-animation">
       <stats-component [upgradesBought]="this.upgrades"
                        [localStorageUser]="this.localStorageUser"
       ></stats-component>
@@ -14,7 +14,7 @@
   }
   @if (this.middleScreen === 'Default') {
     <div>
-      <p>This is the default screen</p>
+      <p></p>
     </div>
   }
 </div>

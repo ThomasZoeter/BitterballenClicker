@@ -1,4 +1,4 @@
-<button class="upgrade" (click)="game.buyUpgrade(upgrade)" title="{{ hovertext }}"
+<button animate.enter="enter-animation" class="upgrade" (click)="game.buyUpgrade(upgrade)" title="{{ hovertext }}"
         [hidden]="setHidden()"
         [disabled]="setBuyable()">
   {{ upgrade.id }}
