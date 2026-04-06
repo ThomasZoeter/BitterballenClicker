@@ -4,12 +4,15 @@ import {
 } from '@angular/core';
 import {BuildingType} from "../../../backend/buildings/buildingType"
 import {Game} from '../../../backend/game';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'building-component',
   standalone: true,
   styleUrl: './building-component.css',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './building-component.html'
 
 })

@@ -2,6 +2,7 @@ export type BuildingType =
   {
     name: string
     description: string
+    picture: string
     costBase: number
     costTotal: number
     effectBpS: number
@@ -12,31 +13,35 @@ export const BUILDINGS: BuildingType[] = [
   {
     name: "Autoclicker",
     description: "This is an autoclicker.",
+    picture: "clicker.png",
     costBase: 10,
     costTotal: 10,
     effectBpS: 1,
     amount: 0,
   },
   {
-    name: "Frituur",
-    description: "This is a frituur.",
-    costBase: 100,
-    costTotal: 100,
+    name: "Deepfryer",
+    description: "This is a deepfryer.",
+    picture: "deepfryer.png",
+    costBase: 10,
+    costTotal: 10,
     effectBpS: 5,
     amount: 0,
   }, {
     name: "Snackbar",
     description: "This is a snackbar.",
-    costBase: 500,
-    costTotal: 500,
+    picture: "snackbar.png",
+    costBase: 50,
+    costTotal: 50,
     effectBpS: 10,
     amount: 0,
   },
   {
     name: "Factory",
     description: "This is a factory to create bitterballen.",
-    costBase: 1500,
-    costTotal: 1500,
+    picture: "factory.png",
+    costBase: 150,
+    costTotal: 150,
     effectBpS: 50,
     amount: 0,
   }
