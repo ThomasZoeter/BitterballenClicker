@@ -18,11 +18,14 @@ export class Game {
     this.gameState = new GameState
   }
 
+  public setBBs(BB: number) {
+    this.gameState.realBB = BB;
+  }
+
   public clickBB(): number {
     this.gameState.realBB += this.gameState.actualClickingPower
     this.gameState.realBBSig.update(() => this.gameState.realBB)
     this.gameState.allTimeBB += this.gameState.actualClickingPower
-    this.gameState.allTimeBBScreen.update(() => this.gameState.allTimeBB)
     return this.gameState.realBB
   }
 
@@ -30,7 +33,6 @@ export class Game {
     this.gameState.realBB += this.gameState.BpS
     this.gameState.realBBSig.update(() => this.gameState.realBB)
     this.gameState.allTimeBB += this.gameState.BpS
-    this.gameState.allTimeBBScreen.update(() => this.gameState.allTimeBB)
     return this.gameState.realBB
   }
 
@@ -50,7 +52,7 @@ export class Game {
     selectedBuilding.amount -= 1 //we first decease the amount because we want to use the original cost
     selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
     this.gameState.realBB += selectedBuilding.costTotal
-    this.gameState.realBBSig.update(() => this.gameState.realBB)
+    // this.gameState.realBBSig.update(() => this.gameState.realBB)
     this.gameState.baseBpS -= selectedBuilding.effectBpS
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
     return this.gameState.realBB

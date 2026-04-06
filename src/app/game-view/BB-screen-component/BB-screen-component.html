@@ -1,4 +1,13 @@
-<div class="Background-BB">
+<div class="Background-BB" xmlns="http://www.w3.org/1999/html">
   <BB-background-component>
   </BB-background-component>
+  <div class="DevMode">
+    <button>devmode</button>
+    <div>
+      <button (click)="localStorageUser.clearData()">Clear data</button>
+      <input type="number" (input)="BB = $any($event.target).value">
+      <button (click)="setBBOnDevMode(BB)">Set BB</button>
+    </div>
+  </div>
 </div>
+
