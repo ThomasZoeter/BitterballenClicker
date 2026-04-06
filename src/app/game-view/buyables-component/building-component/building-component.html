@@ -5,7 +5,9 @@
      title="{{ hovertext }}"
      (click)="buyOrSell()">
   <div class="building-grid">
-    <div class="icon"></div>
+    <div class="icon">
+      <img src="app/assets/buildings/{{ building.picture }}" alt="{{ building.picture }}" height="80" width="45">
+    </div>
     <div class="name"> {{ building.name }}</div>
     <div class="amount"> {{ building.amount }}</div>
     @if(!this.buying) {
