@@ -52,7 +52,6 @@ export class Game {
     selectedBuilding.amount -= 1 //we first decease the amount because we want to use the original cost
     selectedBuilding.costTotal = selectedBuilding.costBase + selectedBuilding.amount * (selectedBuilding.costBase / 2 )
     this.gameState.realBB += selectedBuilding.costTotal
-    // this.gameState.realBBSig.update(() => this.gameState.realBB)
     this.gameState.baseBpS -= selectedBuilding.effectBpS
     this.gameState.BpS = this.gameState.baseBpS * (this.gameState.BpSModifier / 100)
     return this.gameState.realBB
