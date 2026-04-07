@@ -2,16 +2,14 @@ import {
   ChangeDetectorRef,
   Component, Input, OnInit, computed
 } from '@angular/core';
-import {BuildingType} from "../../../backend/buildings/buildingType"
-import {Game} from '../../../backend/game';
-import {NgOptimizedImage} from '@angular/common';
+import {BuildingType} from "../../../../backend/buildings/buildingType"
+import {Game} from '../../../../backend/game';
 
 @Component({
   selector: 'building-component',
   standalone: true,
   styleUrl: './building-component.css',
   imports: [
-    NgOptimizedImage
   ],
   templateUrl: './building-component.html'
 

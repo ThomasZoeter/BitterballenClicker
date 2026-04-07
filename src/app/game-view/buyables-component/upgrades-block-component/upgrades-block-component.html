@@ -1,0 +1,9 @@
+<div class="upgradeBlock">
+  <img class="backgroundPic" ngSrc="app/assets/upgrades/upgradesIcon.png" alt="upgradesIcon.png" height="300" width="300">
+  <div class="upgradesLayer">
+    @for (upgrade of upgrades;let idx =  $index;track idx) {
+      <upgrade-component [upgrade]="upgrade">
+      </upgrade-component>
+    }
+  </div>
+</div>

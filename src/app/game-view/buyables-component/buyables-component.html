@@ -1,9 +1,7 @@
 <p style="font-family:courier;">Upgrades</p>
 <div class="upgradeBlock">
-  @for (upgrade of upgrades;let idx =  $index;track idx) {
-    <upgrade-component [upgrade]="upgrade">
-    </upgrade-component>
-  }
+<upgrades-block-component [upgrades]="upgrades">
+</upgrades-block-component>
 </div>
 <p style="font-family:courier;">Buildings</p>
 
@@ -12,8 +10,6 @@
   <label></label>
 </div>
 <div class="buildingBlock">
-  @for (building of buildings;let idx = $index;track idx) {
-    <building-component [building]="building" [buying]="true">
-    </building-component>
-  }
+ <buildings-block-component [buildings]="buildings">
+ </buildings-block-component>
 </div>

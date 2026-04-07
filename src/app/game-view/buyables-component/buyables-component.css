@@ -10,7 +10,7 @@
 
 .upgradeBlock {
   background-color: burlywood;
-  width: 100%;
+  width: 95%;
   height: 180px;
   overflow: auto;
   border-width: 5px;
@@ -86,3 +86,5 @@
 .toggle input[type="checkbox"]:checked + label:after {
   color: #CCC;
 }
+
+

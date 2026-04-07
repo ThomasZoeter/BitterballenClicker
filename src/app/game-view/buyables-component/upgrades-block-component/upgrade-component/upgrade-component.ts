@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Game} from '../../../backend/game';
-import {UpgradeType} from '../../../backend/upgrades/upgradeType';
+import {Game} from '../../../../backend/game';
+import {UpgradeType} from '../../../../backend/upgrades/upgradeType';
 
 @Component({
   selector: 'upgrade-component',
@@ -50,7 +50,6 @@ export class UpgradeComponent implements OnInit {
     this.hovertext = this.setDescription()
     // On init, if an upgrade has been bought then the effect should be applied
     if(this.upgrade.hasBeenBought) {
-      console.log(this.upgrade.name + " has been bought!")
       this.game.applyUpgradeEffect(this.upgrade)
     }
   }
