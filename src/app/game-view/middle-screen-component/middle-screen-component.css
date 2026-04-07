@@ -98,19 +98,16 @@
 
 }
 
-/*body {*/
-/*  margin: 0;*/
-/*  font: 100% / 1.5 Raleway, sans-serif;*/
-/*  color: hsl(230, 100%, 95%);*/
-/*  background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));*/
-/*  height: 100vh;*/
-/*  display: flex;*/
-/*}*/
-
 h2 {
   margin: auto;
   font-size: 3.5rem;
   font-weight: 300;
   animation: lights 5s 750ms linear infinite;
 }
+@media screen and (max-height: 600px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
 
