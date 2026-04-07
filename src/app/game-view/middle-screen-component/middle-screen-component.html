@@ -1,9 +1,12 @@
 <div class="full-middle-screen">
   <div class="chooseMiddle">
-    <button (click)="clickMiddleScreen('Default')">Default</button>
-    <button (click)="clickMiddleScreen('Statistics')">Statistics</button>
+    <h2>Bitterballen Clicker</h2>
   </div>
   <div class="top-down-separator">
+    <div class="chooseMiddleButtons">
+      <button (click)="clickMiddleScreen('Default')">Default</button>
+      <button (click)="clickMiddleScreen('Statistics')">Statistics</button>
+    </div>
   </div>
   @if (this.middleScreen === 'Statistics') {
     <div animate.enter="enter-animation">
