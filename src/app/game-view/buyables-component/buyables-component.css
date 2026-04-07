@@ -2,6 +2,7 @@
   background-color: burlywood;
   width:95%;
   padding-left: 15px;
+  height: 180px;
   overflow: auto;
   border-width: 5px;
   border-style: solid;
@@ -10,7 +11,7 @@
 
 .upgradeBlock {
   background-color: burlywood;
-  width: 95%;
+  width: 99%;
   height: 180px;
   overflow: auto;
   border-width: 5px;
