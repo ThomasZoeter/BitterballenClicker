@@ -7,3 +7,9 @@
   position: absolute;
   bottom: 0;
 }
+
+@media (max-width: 480px) {
+  .DevMode {
+    visibility: hidden;
+  }
+}

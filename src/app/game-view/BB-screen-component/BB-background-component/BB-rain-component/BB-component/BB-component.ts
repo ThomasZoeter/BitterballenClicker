@@ -5,6 +5,8 @@ import {interval, Subscription} from 'rxjs';
 import {GameState} from '../../../../../backend/game-state';
 import {Game} from '../../../../../backend/game';
 import {NgOptimizedImage} from '@angular/common';
+import {LocalStorageService} from '../../../../../backend/local-storage/local-storage-service';
+import {LocalStorageUser} from '../../../../../backend/local-storage/local-storage-user';
 
 @Component({
   selector: 'BB-component',
@@ -20,11 +22,12 @@ import {NgOptimizedImage} from '@angular/common';
 export class BBComponent implements OnDestroy, OnInit{
   public onScreenBB = signal("")
   public onScreenTotalBB = signal(0)
+  localStorageUser: LocalStorageUser
 
   gameState: GameState
   private timerSubscription: Subscription | undefined;
   private timerSubscriptionStart: Subscription | undefined;
-  constructor(private game: Game) {
+  constructor(private localStore: LocalStorageService, private game: Game) {
     this.gameState = this.game.getGameState()
   }
 
@@ -38,6 +41,9 @@ export class BBComponent implements OnDestroy, OnInit{
   }
 
   ngOnInit() {
+    this.localStorageUser = new LocalStorageUser(this.localStore, this.game)
+
+
     // Flow to BB count in 1 sec - subscription
     const startup = Math.floor(this.gameState.realBB / 20)
     let start = 0

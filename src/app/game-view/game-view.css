@@ -71,7 +71,7 @@
 }
 
 @media (max-width: 480px) {
-  * {
+  .page {
     display: flex;
     width: 300vw;
 

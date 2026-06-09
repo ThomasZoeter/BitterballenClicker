@@ -74,6 +74,16 @@ canvas {
   }
 }
 
+@media (max-width: 480px) {
+  .particles-container {
+    position: relative;   /* important for positioning children */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;     /* ensures particles don’t spill out */
+    border: hidden;
+  }
+}
+
 
 
 
