@@ -83,13 +83,14 @@
 @media (max-width: 480px) {
   .page {
     display: flex;
-    width: 300vw;
+    width: 100vw;
     height: 100vh;
 
     overflow-x: auto;
     overflow-y: hidden;
 
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
 
   .separator-left,
@@ -100,11 +101,15 @@
   .left,
   .middle,
   .right {
-    width: 100vw;
-    flex-shrink: 0;
-    padding-bottom: 60px;
+    min-width: 100vw;
+    height: 100vh;
 
     scroll-snap-align: start;
+    flex-shrink: 0;
+
+    padding: 20px;
+    padding-bottom: 70px;
+    box-sizing: border-box;
   }
 
   .bottom-nav {
@@ -121,13 +126,15 @@
     z-index: 10;
   }
 
-  .bottom-nav a {
+  .bottom-nav button {
+    background: none;
+    border: none;
     color: white;
-    text-decoration: none;
     opacity: 0.5;
+    font-size: 16px;
   }
 
-  .bottom-nav a.active {
+  .bottom-nav button.active {
     opacity: 1;
     font-weight: bold;
     border-bottom: 2px solid white;

@@ -1,3 +1,27 @@
+<script>
+  const app = document.querySelector("#app");
+  const buttons = document.querySelectorAll(".bottom-nav button");
+  const pages = ["left", "middle", "right"];
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const target = document.querySelector("#" + button.dataset.page);
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+        block: "nearest"
+      });
+    });
+  });
+
+  app.addEventListener("scroll", () => {
+    const index = Math.round(app.scrollLeft / window.innerWidth);
+
+    buttons.forEach(button => button.classList.remove("active"));
+    buttons[index].classList.add("active");
+  });
+</script>
 <div class="page">
   <div class="left" id="left">
     <BB-screen-component [localStorageUser]="this.localStorageUser">
@@ -27,7 +51,7 @@
 </div>
 
 <nav class="bottom-nav">
-  <a href="#left" class="nav-link active">Left</a>
-  <a href="#middle" class="nav-link">Middle</a>
-  <a href="#right" class="nav-link">Right</a>
+  <button data-page="left" class="active">Left</button>
+  <button data-page="middle">Middle</button>
+  <button data-page="right">Right</button>
 </nav>
