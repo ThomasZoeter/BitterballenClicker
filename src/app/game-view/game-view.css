@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+.page {
+  height: 100vh;
+
+}
+
 .separator-left {
   width: 20px;
   float: left;
@@ -59,6 +64,11 @@
   left: 45%;
 }
 
+
+.bottom-nav {
+  display: none;
+}
+
 @media screen and (max-height: 600px) {
   .left {
     width: 400px;
@@ -74,6 +84,7 @@
   .page {
     display: flex;
     width: 300vw;
+    height: 100vh;
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -91,7 +102,37 @@
   .right {
     width: 100vw;
     flex-shrink: 0;
+    padding-bottom: 60px;
 
     scroll-snap-align: start;
   }
+
+  .bottom-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+
+    background: #222;
+    padding: 10px 0;
+    z-index: 10;
+  }
+
+  .bottom-nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+
+  .bottom-nav a.active {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+
 }
+
+

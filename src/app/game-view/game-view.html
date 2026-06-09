@@ -1,5 +1,5 @@
 <div class="page">
-  <div class="left">
+  <div class="left" id="left">
     <BB-screen-component [localStorageUser]="this.localStorageUser">
 
     </BB-screen-component>
@@ -7,14 +7,14 @@
   </div>
   <div class="separator-left">
   </div>
-  <div class="right">
+  <div class="right" id="right">
     <buyables-component [buildings]="this.buildings"
                         [upgrades]="this.upgrades">
     </buyables-component>
   </div>
   <div class="separator-right">
   </div>
-  <div class="middle">
+  <div class="middle" id="middle">
     <middle-screen-component [upgrades]="this.upgrades"
                              [localStorageUser]="this.localStorageUser">
     </middle-screen-component>
@@ -25,3 +25,9 @@
     </div>
   </div>
 </div>
+
+<nav class="bottom-nav">
+  <a href="#left" class="nav-link active">Left</a>
+  <a href="#middle" class="nav-link">Middle</a>
+  <a href="#right" class="nav-link">Right</a>
+</nav>
