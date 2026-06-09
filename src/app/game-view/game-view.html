@@ -1,26 +1,27 @@
-<div class="left">
-  <BB-screen-component [localStorageUser]="this.localStorageUser">
+<div class="page">
+  <div class="left">
+    <BB-screen-component [localStorageUser]="this.localStorageUser">
 
-  </BB-screen-component>
+    </BB-screen-component>
 
-</div>
-<div class="separator-left">
-</div>
-<div class="right">
-  <buyables-component [buildings]="this.buildings"
-                      [upgrades]="this.upgrades">
-  </buyables-component>
-</div>
-<div class="separator-right">
-</div>
-<div class="middle">
-  <middle-screen-component [upgrades]="this.upgrades"
-                           [localStorageUser]="this.localStorageUser">
-  </middle-screen-component>
+  </div>
+  <div class="separator-left">
+  </div>
+  <div class="right">
+    <buyables-component [buildings]="this.buildings"
+                        [upgrades]="this.upgrades">
+    </buyables-component>
+  </div>
+  <div class="separator-right">
+  </div>
+  <div class="middle">
+    <middle-screen-component [upgrades]="this.upgrades"
+                             [localStorageUser]="this.localStorageUser">
+    </middle-screen-component>
 
-  <div class="SinceLastSave" [hidden]="this.hideBBsWhileAwayBlock">
-    <p>Bitterballen since you were away: {{ this.BBsWhileAway }}</p>
-    <button (click)="hideBBsWhileAwayBlock = true">Ok</button>
+    <div class="SinceLastSave" [hidden]="this.hideBBsWhileAwayBlock">
+      <p>Bitterballen since you were away: {{ this.BBsWhileAway }}</p>
+      <button (click)="hideBBsWhileAwayBlock = true">Ok</button>
+    </div>
   </div>
 </div>
-

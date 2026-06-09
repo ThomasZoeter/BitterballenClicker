@@ -64,12 +64,34 @@
     width: 400px;
   }
 
-  .middle {
-
-  }
-
   .right {
     width: 375px;
   }
 
+}
+
+@media (max-width: 480px) {
+  * {
+    display: flex;
+    width: 300vw;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+  }
+
+  .separator-left,
+  .separator-right{
+    visibility: hidden;
+  }
+
+  .left,
+  .middle,
+  .right {
+    width: 100vw;
+    flex-shrink: 0;
+
+    scroll-snap-align: start;
+  }
 }
